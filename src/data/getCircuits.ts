@@ -1,0 +1,12 @@
+import { CircuitInformation } from '@/types/circuit'
+
+export const getCircuits = async () => {
+	const url = 'http://ergast.com/api/f1/2023/circuits.json'
+	const response = await fetch(url)
+	const data = (await response.json()) as CircuitInformation
+
+	return {
+		circuits: data.MRData.CircuitTable.Circuits,
+		season: data.MRData.CircuitTable.season
+	}
+}
