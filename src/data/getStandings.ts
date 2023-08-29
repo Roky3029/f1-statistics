@@ -2,7 +2,7 @@ import { type DriverStandings } from '@/types/driversTypes'
 import { type ConstructorStandings } from '@/types/constructorTypes'
 
 export const getDriverStandings = async () => {
-	const url = 'https://ergast.com/api/f1/current/driverStandings.json'
+	const url = 'http://ergast.com/api/f1/current/driverStandings.json'
 	const data = await fetch(url)
 	const drivers = (await data.json()) as DriverStandings
 
@@ -14,7 +14,7 @@ export const getDriverStandings = async () => {
 }
 
 export const getConstructorStandings = async () => {
-	const url = 'https://ergast.com/api/f1/current/constructorStandings.json'
+	const url = 'http://ergast.com/api/f1/current/constructorStandings.json'
 	const data = await fetch(url)
 	const constructors = (await data.json()) as ConstructorStandings
 

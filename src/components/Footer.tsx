@@ -29,6 +29,7 @@ const Footer = () => {
 					<a
 						href='https://twitter.com/Dev30Kirky'
 						className='transition-all hover:scale-[1.2]'
+						target='_blank'
 					>
 						<Image
 							src='/icons/twitter.svg'
@@ -39,6 +40,7 @@ const Footer = () => {
 					</a>
 					<a
 						href='https://github.com/Roky3029'
+						target='_blank'
 						className='transition-all hover:scale-[1.2]'
 					>
 						<Image

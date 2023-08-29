@@ -23,19 +23,23 @@ const CircuitIdPage = async ({ params }: { params: { circuitId: string } }) => {
 	const { circuitName, country, latitude, locality, longitude } = data
 
 	return (
-		<div className='pb-10 w-full flex items-center justify-center flex-col'>
-			{/* dark:text-white */}
-			<p className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl '>
+		<div className='w-full flex flex-col items-center justify-center'>
+			<p className='mb-20 text-3xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl '>
 				{circuitName}
 			</p>
 
-			<div className='bg-slate-300 rounded-lg shadow-md w-[90%] space-y-10 flex items-center p-5 justify-center flex-col'>
-				<p className='text-3xl font-bold text-gray-900'>
-					{country} {getCountryFlag(country)} - {locality}
+			<p className='text-4xl text-gray-900 mb-10'>
+				{country}
+				{getCountryFlag(country)} - {locality}
+			</p>
+
+			<div className='px-96 bg-slate-300 py-5 mx-auto rounded-lg shadow-md mb-20 w-[90%] flex flex-col'>
+				<p className='mb-4 text-2xl text-center font-extrabold leading-none tracking-tight text-gray-900'>
+					Circuit data
 				</p>
 
-				<div className='grid grid-cols-2'>
-					<div className='grid grid-cols-1 place-content-center text-xl gap-10'>
+				<div className='grid grid-cols-2 w-full place-content-center'>
+					<div>
 						<p>
 							<span className='opacity-70'>First race: </span>
 							{firstRace}
@@ -46,26 +50,29 @@ const CircuitIdPage = async ({ params }: { params: { circuitId: string } }) => {
 						</p>
 						<p>
 							<span className='opacity-70'>One lap distance: </span>
-							{oneLapDistance} km
+							{oneLapDistance}
 						</p>
 						<p>
-							<span className='opacity-70'>Total distance: </span>
-							{raceDistance} km
+							<span className='opacity-70'>Total distance</span>
+							{raceDistance}
 						</p>
-						<div className='flex gap-3'>
-							<span className='opacity-70'>Fastest lap: </span>
+						<p>
+							<span className='opacity-70'>Total distance</span>
+							{raceDistance}
+						</p>
+						<div>
+							<span className='opacity-70'>Fastest lap ever:</span>
 							<div>
-								<p>{fastestLap}</p>
-								<p className='text-2xl font-extrabold'>{authorOfFastestLap}</p>
+								<p>{raceDistance}</p>
+								<p>{authorOfFastestLap}</p>
 							</div>
 						</div>
 					</div>
 
-					<Image
+					<img
+						className='bg-blue-200 grid place-content-center '
 						src={`/circuits/${params.circuitId}.png`}
-						alt={`Image of the ${circuitName}`}
-						width={771}
-						height={434}
+						alt={`Image of the ${data.circuitName}`}
 					/>
 				</div>
 			</div>

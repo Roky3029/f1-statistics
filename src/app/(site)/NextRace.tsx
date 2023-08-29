@@ -9,11 +9,13 @@ const NextRace = async () => {
 
 	return (
 		<section className='flex w-[80%] flex-col space-y-8 rounded-lg bg-teal-300 px-14 py-5'>
-			<h4 className='p-6 text-center text-2xl font-bold font-f1'>NEXT RACE</h4>
-			<div className='flex items-center justify-between space-x-40'>
-				<h4 className='text-2xl font-bold'>{race}</h4>
-				<p className='text-5xl'>{getCountryFlag(country)}</p>
-				<p className='text-xl'>{circuit}</p>
+			<h4 className='p-6 flex items-center justify-center text-2xl font-bold font-f1'>
+				NEXT RACE
+			</h4>
+			<div className='grid place-content-center grid-cols-3'>
+				<h4 className='text-2xl font-bold text-center'>{race}</h4>
+				<p className='text-5xl text-center'>{getCountryFlag(country)}</p>
+				<p className='text-xl text-center'>{circuit}</p>
 			</div>
 			<div className='flex justify-between'>
 				<div className='flex items-center'>
