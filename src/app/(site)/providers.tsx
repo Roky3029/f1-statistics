@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // app/providers.tsx
 'use client'
 

@@ -11,6 +11,7 @@ const Footer = () => {
 					href='https://github.com/Roky3029'
 					className='text-blue-400 transition-all hover:text-blue-600'
 					target='_blank'
+					rel='noreferrer'
 				>
 					Miguel R.
 				</a>
@@ -32,12 +33,14 @@ const Footer = () => {
 						href='https://twitter.com/Dev30Kirky'
 						className='transition-all hover:scale-[1.2]'
 						target='_blank'
+						rel='noreferrer'
 					>
 						<BsTwitter size={50} />
 					</a>
 					<a
 						href='https://github.com/Roky3029'
 						target='_blank'
+						rel='noreferrer'
 						className='transition-all hover:scale-[1.2]'
 					>
 						<BsGithub size={50} />
@@ -50,7 +53,12 @@ const Footer = () => {
 			</div>
 			<p className='opacity-30 pb-10 lg:pb-0'>
 				Powered by{' '}
-				<a href='http://ergast.com/mrd/' className='underline' target='_blank'>
+				<a
+					href='http://ergast.com/mrd/'
+					className='underline'
+					target='_blank'
+					rel='noreferrer'
+				>
 					Ergast's F1 API
 				</a>
 			</p>

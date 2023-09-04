@@ -1,42 +1,47 @@
 {
-  "name": "f1-page",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.17",
-    "@nextui-org/react": "^2.0.18",
-    "@types/node": "20.4.10",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.14",
-    "eslint-config-next": "13.4.13",
-    "framer-motion": "^10.15.1",
-    "next": "^13.4.16",
-    "postcss": "8.4.27",
-    "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.5.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.10.1",
-    "react-spinners": "^0.13.8",
-    "react-timer-hook": "^3.0.7",
-    "tailwindcss": "3.3.3"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "eslint": "^8.47.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-config-standard-with-typescript": "^37.0.0",
-    "eslint-plugin-import": "^2.28.0",
-    "eslint-plugin-n": "^16.0.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.33.1",
-    "typescript": "^5.1.6"
-  }
+	"name": "f1-page",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@headlessui/react": "^1.7.17",
+		"@nextui-org/react": "^2.0.18",
+		"@types/node": "20.4.10",
+		"@types/react": "18.2.20",
+		"@types/react-dom": "18.2.7",
+		"autoprefixer": "10.4.14",
+		"eslint-config-next": "13.4.13",
+		"framer-motion": "^10.15.1",
+		"next": "^13.4.16",
+		"postcss": "8.4.27",
+		"prettier": "^3.0.1",
+		"prettier-plugin-tailwindcss": "^0.5.2",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.10.1",
+		"react-spinners": "^0.13.8",
+		"react-timer-hook": "^3.0.7",
+		"tailwindcss": "3.3.3"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.62.0",
+		"eslint": "^8.47.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-config-standard-with-typescript": "^37.0.0",
+		"eslint-plugin-import": "^2.28.0",
+		"eslint-plugin-n": "^16.0.1",
+		"eslint-plugin-promise": "^6.1.1",
+		"eslint-plugin-react": "^7.33.1",
+		"ts-standard": "^12.0.2",
+		"typescript": "^5.1.6",
+		"typescript-standard": "^0.3.36"
+	},
+	"ts-standard": {
+		"project": "./tsconfig.json"
+	}
 }

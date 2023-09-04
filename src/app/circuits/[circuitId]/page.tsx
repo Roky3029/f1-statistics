@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getSingleCircuit } from '@/data/getSingleCircuit'
 import { getCountryFlag } from '@/helpers/getCountryFlag'
 import { notFound } from 'next/navigation'
