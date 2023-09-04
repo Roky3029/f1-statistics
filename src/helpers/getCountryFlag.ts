@@ -24,5 +24,5 @@ export const getCountryFlag = (country: string) => {
 		'United States': ' 🇺🇸 '
 	}
 
-	return raceCountries[country] || ' 🇺🇳 '
+	return (raceCountries as any)[country] || ' 🇺🇳 '
 }
