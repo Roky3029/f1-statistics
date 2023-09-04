@@ -1,6 +1,7 @@
 import { getSchedule } from '@/data/getSchedule'
 import { getCountryFlag } from '@/helpers/getCountryFlag'
 import Link from 'next/link'
+import { hasDatePassed } from '@/helpers/hasDatePassed'
 
 const Calendar = async () => {
 	const { season, races } = await getSchedule()
@@ -9,11 +10,17 @@ const Calendar = async () => {
 		<>
 			<h2 className='text-4xl'>{season} Calendar</h2>
 
-			<div className='w-full grid grid-cols-3 gap-7 place-content-center p-5 px-10'>
+			<div className='w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 place-content-center p-5 px-10'>
 				{races.map(race => {
+					const hasGPPassed = hasDatePassed(new Date(race.date))
+
 					return (
 						<>
-							<div className='bg-blue-200 space-y-5 p-5 rounded-lg shadow-md'>
+							<div
+								className={`${
+									hasGPPassed ? 'bg-blue-100' : 'bg-blue-200'
+								} space-y-5 p-5 rounded-lg shadow-md`}
+							>
 								<div className='grid grid-cols-3 text-xl'>
 									<h4>Round {race.round}</h4>
 									<p className='col-start-2 col-end-4'>{race.raceName}</p>

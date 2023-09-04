@@ -22,7 +22,7 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 	return (
 		<section className=' w-full flex items-center justify-center flex-col'>
 			<div className='bg-slate-300 rounded-lg shadow-md w-[90%] space-y-10 flex items-center p-5 justify-center flex-col'>
-				<div className='flex items-center justify-center space-x-80 '>
+				<div className='flex items-center justify-center flex-col lg:flex-row gap-10 '>
 					<div className='text-3xl'>
 						<p>{driver.givenName}</p>
 						<p
@@ -42,7 +42,7 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 				<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
 					Championship stats
 				</p>
-				<div className='flex items-center justify-center text-xl gap-56'>
+				<div className='flex items-center justify-center flex-col lg:flex-row text-xl gap-5 lg:gap-56'>
 					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
 						<span className='opacity-70'>Position:</span>{' '}
 						{selectedDriver.position}
@@ -59,7 +59,7 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 				<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
 					Driver stats
 				</p>
-				<div className='flex items-center justify-center text-xl gap-56'>
+				<div className='flex items-center justify-center flex-col lg:flex-row text-xl gap-5 lg:gap-56'>
 					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
 						<span className='opacity-70'>Code:</span> {driver.code}
 					</p>
@@ -81,15 +81,3 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 }
 
 export default DriverInfo
-
-// {
-//   MRData: {
-//     xmlns: 'http://ergast.com/mrd/1.5',
-//     series: 'f1',
-//     url: 'http://ergast.com/api/f1/current/drivers/perez.json',
-//     limit: '30',
-//     offset: '0',
-//     total: '1',
-//     DriverTable: { season: '2023', driverId: 'perez', Drivers: [Array] }
-//   }
-// }

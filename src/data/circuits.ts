@@ -120,8 +120,8 @@ export const circuitData = [
 		id: 'marina_bay',
 		firstRace: '2008',
 		numberOfLaps: '62',
-		oneLapDistance: 'TBC',
-		raceDistance: 'TBC',
+		oneLapDistance: '(N/A)',
+		raceDistance: '(N/A)',
 		fastestLap: 'N/A',
 		authorOfFastestLap: '(N/A)'
 	},

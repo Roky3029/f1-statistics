@@ -1,10 +1,11 @@
 import { SingleCircuit } from '@/types/singleCircuit'
 import { notFound } from 'next/navigation'
+import { SECONDS_ISR } from './consts'
 
 export const getSingleCircuit = async (circuitId: string = 'spa') => {
 	const url = `http://ergast.com/api/f1/circuits/${circuitId}.json`
 
-	const response = await fetch(url)
+	const response = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 
 	if (!response.ok) notFound()
 	const data = (await response.json()) as SingleCircuit

@@ -34,7 +34,7 @@ const CircuitIdPage = async ({ params }: { params: { circuitId: string } }) => {
 					{country} {getCountryFlag(country)} - {locality}
 				</p>
 
-				<div className='grid grid-cols-2'>
+				<div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
 					<div className='grid grid-cols-1 place-content-center text-xl gap-10'>
 						<p>
 							<span className='opacity-70'>First race: </span>

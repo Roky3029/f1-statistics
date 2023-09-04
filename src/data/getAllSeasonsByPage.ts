@@ -1,4 +1,5 @@
 import { Seasons } from '@/types/seasonsTypes'
+import { SECONDS_ISR } from './consts'
 
 export const getAllSeasonsByPage = async (
 	page: number = 1,
@@ -8,7 +9,7 @@ export const getAllSeasonsByPage = async (
 	const offset = limit * (page - 1)
 	const url = `http://ergast.com/api/f1/seasons.json?limit=${limit}&offset=${offset}`
 
-	const results = await fetch(url)
+	const results = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 	const data = (await results.json()) as Seasons
 
 	return {

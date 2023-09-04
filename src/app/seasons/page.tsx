@@ -29,7 +29,7 @@ const SeasonsHome = () => {
 			{loading && <HashLoader />}
 			{!loading && (
 				<>
-					<div className='grid grid-cols-5 w-full place-content-center gap-10 px-10 grid-rows-2'>
+					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 w-full place-content-center gap-10 px-10 grid-rows-2'>
 						{data?.seasonList?.map((season: any) => (
 							<div
 								key={season.season}

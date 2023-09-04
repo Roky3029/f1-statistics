@@ -36,7 +36,7 @@ const NextRace = async () => {
 					Round {round} | Season {season}
 				</p>
 
-				<div className='grid grid-cols-2'>
+				<div className='grid grid-cols-1 gap-10 lg:grid-cols-2'>
 					<div className='grid grid-cols-1 place-content-center text-xl gap-10'>
 						<p className='text-center text-2xl font-semibold'>{raceName}</p>
 
@@ -66,7 +66,7 @@ const NextRace = async () => {
 					/>
 				</div>
 
-				<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
+				<p className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
 					Time until next race
 				</p>
 				<Countdown
@@ -79,7 +79,7 @@ const NextRace = async () => {
 					Racing sessions
 				</p>
 
-				<div className='grid grid-cols-5 gap-4'>
+				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4'>
 					<Card
 						sessionTitle='FP1'
 						day={formatDate(FirstPractice.date.toString())[0]}

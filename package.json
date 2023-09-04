@@ -11,7 +11,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@nextui-org/react": "^2.0.18",
-    "@react-google-maps/api": "^2.19.2",
     "@types/node": "20.4.10",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -24,10 +23,10 @@
     "prettier-plugin-tailwindcss": "^0.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "react-spinners": "^0.13.8",
     "react-timer-hook": "^3.0.7",
-    "tailwindcss": "3.3.3",
-    "wiki-img": "^1.0.6"
+    "tailwindcss": "3.3.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.62.0",

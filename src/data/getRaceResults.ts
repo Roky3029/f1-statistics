@@ -1,10 +1,11 @@
 import { type RaceResults } from '@/types/raceResultsTypes'
 import { notFound } from 'next/navigation'
+import { SECONDS_ISR } from './consts'
 
 export const getRaceResults = async (round: string) => {
 	const url = `http://ergast.com/api/f1/current/${round}/results.json`
 
-	const data = await fetch(url)
+	const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 
 	if (!data.ok) notFound()
 

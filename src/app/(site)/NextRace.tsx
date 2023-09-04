@@ -2,6 +2,7 @@ import { getNextRace } from '@/data/getNextRace'
 import { getCountryFlag } from '@/helpers/getCountryFlag'
 import Countdown from './../../components/Countdown'
 import Link from 'next/link'
+import { AiOutlineLink } from 'react-icons/ai'
 
 const NextRace = async () => {
 	const { ronda, race, fecha, horaCarrera, circuit, country } =
@@ -12,7 +13,7 @@ const NextRace = async () => {
 			<h4 className='p-6 flex items-center justify-center text-2xl font-bold font-f1'>
 				NEXT RACE
 			</h4>
-			<div className='grid place-content-center grid-cols-3'>
+			<div className='grid place-content-center grid-cols-2 lg:grid-cols-3'>
 				<h4 className='text-2xl font-bold text-center'>{race}</h4>
 				<p className='text-5xl text-center'>{getCountryFlag(country)}</p>
 				<p className='text-xl text-center'>{circuit}</p>
@@ -33,7 +34,7 @@ const NextRace = async () => {
 					href='/nextrace'
 					className='flex w-fit items-center justify-center space-x-2 rounded-lg bg-f1 px-5 py-3 text-lg text-white shadow-lg transition-all duration-300 hover:scale-105'
 				>
-					<img src='/icons/link.svg' alt='Link' height={16} width={16} />
+					<AiOutlineLink size={16} />
 					<span>See the full schedule</span>
 				</Link>
 			</div>

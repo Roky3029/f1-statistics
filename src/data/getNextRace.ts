@@ -1,7 +1,9 @@
+import { SECONDS_ISR } from './consts'
+
 export const getNextRace = async (getAllData?: boolean) => {
 	// Gets, from the current season, the next race is going to be celebrated
 	const url = 'http://ergast.com/api/f1/current/next.json'
-	const nextRace = await fetch(url, { cache: 'no-cache' })
+	const nextRace = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 	const nextRaceData = await nextRace.json()
 
 	if (getAllData) return nextRaceData.MRData.RaceTable

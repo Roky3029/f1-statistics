@@ -11,7 +11,7 @@ const Drivers = async () => {
 		<>
 			<h2 className='text-4xl'>Drivers</h2>
 
-			<div className='w-full py-5 px-10 grid place-content-center gap-8 grid-cols-2'>
+			<div className='w-full py-5 px-10 grid place-content-center gap-8 grid-cols-1 lg:grid-cols-2'>
 				{constructors.map(constructor => (
 					<div className='bg-blue-200 rounded-lg shadow-lg p-5 flex items-center justify-center flex-col space-y-5'>
 						<p
@@ -22,7 +22,13 @@ const Drivers = async () => {
 							{constructor.name}
 						</p>
 
-						<div className='flex items-center gap-10'>
+						<div
+							className={`grid gap-10 ${
+								constructor.constructorId === 'alphatauri'
+									? 'md:grid-cols-2 xl:grid-cols-4'
+									: 'grid-cols-2'
+							}`}
+						>
 							{standingList.map(driver => (
 								<>
 									{driver.Constructors[0].name === constructor.name && (
@@ -30,7 +36,7 @@ const Drivers = async () => {
 											href={`/drivers/${driver.Driver.driverId}`}
 											className='bg-slate-200 rounded-lg shadow-lg flex items-center justify-center flex-col p-5 pb-0 transition-all hover:bg-slate-300 hover:scale-105'
 										>
-											<p className='text-xl'>{`${driver.Driver.givenName} ${driver.Driver.familyName}`}</p>
+											<p className='text-lg'>{`${driver.Driver.givenName} ${driver.Driver.familyName}`}</p>
 
 											<img
 												src={`/drivers/${driver.Driver.code}.png`}

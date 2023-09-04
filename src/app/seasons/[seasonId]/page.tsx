@@ -15,12 +15,12 @@ const Page = async ({ params }: { params: { seasonId: string } }) => {
 				Season {params.seasonId} results
 			</p>
 
-			<div className='grid grid-cols-3 gap-10'>
+			<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
 				{podium.map(pilot => (
 					<div
 						className={`${
 							pilot.position === '1' // -> check if the pilot on the podium is the 1st
-								? 'bg-gold' // -> we won't add translation, as it has to be the highest
+								? 'bg-gold row-start-1 row-end-3' // -> we won't add translation, as it has to be the highest
 								: pilot.position === '2' // -> if it's not first, check if it's second
 								? 'translate-y-16 bg-silver' // -> if true, translate him
 								: 'translate-y-32 bg-bronze' // -> if not, (which will result in him being 3rd) we'll translate him even more
@@ -46,16 +46,16 @@ const Page = async ({ params }: { params: { seasonId: string } }) => {
 			</div>
 
 			<div className='flex items-center justify-center flex-col w-full pt-40 px-10'>
-				<div className='w-full grid grid-cols-4 px-10 pb-5 border-b-2 border-slate-500'>
-					<p>Position</p>
+				<div className='w-full grid grid-cols-3 lg:grid-cols-4 px-0 lg:px-10 pb-5 border-b-2 border-slate-500 gap-24 lg:gap-0'>
+					<p className='hidden lg:block'>Position</p>
 					<p>Driver</p>
 					<p>Constructor</p>
 					<p>Points</p>
 				</div>
 				{notPodiumResults.map(pilot => (
-					<div className='border-b-2 border-slate-500 last:border-none px-10 py-3 w-full grid grid-cols-4'>
-						<p className='flex items-center'>{pilot.position}</p>
-						<p className='text-xl flex items-center gap-3'>
+					<div className='border-b-2 border-slate-500 last:border-none px-0 lg:px-10 py-3 w-full grid grid-cols-3 lg:grid-cols-4 gap-24 lg:gap-0'>
+						<p className='items-center hidden lg:flex'>{pilot.position}</p>
+						<p className='text-lg flex items-center gap-3'>
 							{pilot.Driver.givenName}{' '}
 							<span className='text-2xl'>{pilot.Driver.familyName}</span>
 						</p>

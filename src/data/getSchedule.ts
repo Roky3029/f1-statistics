@@ -1,5 +1,6 @@
 import { Schedule } from '@/types/scheduleTypes'
 import { notFound } from 'next/navigation'
+import { SECONDS_ISR } from './consts'
 
 export const getSchedule = async (round?: string) => {
 	let url
@@ -10,7 +11,7 @@ export const getSchedule = async (round?: string) => {
 		url = 'https://ergast.com/api/f1/current.json'
 	}
 
-	const data = await fetch(url)
+	const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 
 	if (!data.ok) notFound()
 

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import { AiOutlineArrowUp } from 'react-icons/ai'
 
 const ScrollToTop = () => {
 	const [showTopBtn, setShowTopBtn] = useState(false)
@@ -24,7 +25,7 @@ const ScrollToTop = () => {
 
 	return (
 		<div
-			className={`relative ${
+			className={`lg:relative hidden ${
 				showTopBtn ? 'opacity-100' : 'opacity-0'
 			} transition-all`}
 		>
@@ -32,7 +33,7 @@ const ScrollToTop = () => {
 				onClick={goToTop}
 				className='w-16 h-16 grid place-content-center p-3 fixed bottom-10 right-6 z-20 bg-f1 border-2 border-white rounded-full text-white cursor-pointer transition-all hover:bg-white hover:text-f1 hover:border-f1'
 			>
-				<Image src='/icons/arrow.svg' alt='↑' width={30} height={30} />
+				<AiOutlineArrowUp size={30} />
 			</button>
 		</div>
 	)

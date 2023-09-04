@@ -1,4 +1,6 @@
+import { APP_VERSION } from '@/data/consts'
 import Image from 'next/image'
+import { BsGithub, BsTwitter } from 'react-icons/bs'
 
 const Footer = () => {
 	return (
@@ -14,7 +16,7 @@ const Footer = () => {
 				</a>
 			</p>
 
-			<div className='grid grid-cols-3 place-content-center gap-20'>
+			<div className='grid grid-cols-1 lg:grid-cols-3 place-content-center lg:gap-20 gap-10'>
 				<div className='flex items-center justify-center'>
 					<Image
 						src='/logo.png'
@@ -31,32 +33,22 @@ const Footer = () => {
 						className='transition-all hover:scale-[1.2]'
 						target='_blank'
 					>
-						<Image
-							src='/icons/twitter.svg'
-							alt='Twitter'
-							height={50}
-							width={50}
-						/>
+						<BsTwitter size={50} />
 					</a>
 					<a
 						href='https://github.com/Roky3029'
 						target='_blank'
 						className='transition-all hover:scale-[1.2]'
 					>
-						<Image
-							src='/icons/github.svg'
-							alt='Github'
-							height={50}
-							width={50}
-						/>
+						<BsGithub size={50} />
 					</a>
 				</div>
 
 				<div className='flex items-center justify-center opacity-40'>
-					Developed with 💙 and with effort
+					Developed with 💙 and with effort - v.{APP_VERSION}
 				</div>
 			</div>
-			<p className='opacity-30'>
+			<p className='opacity-30 pb-10 lg:pb-0'>
 				Powered by{' '}
 				<a href='http://ergast.com/mrd/' className='underline' target='_blank'>
 					Ergast's F1 API

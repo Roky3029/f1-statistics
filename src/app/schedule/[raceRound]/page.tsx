@@ -44,7 +44,7 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 					Round {params.raceRound} | Season {season}
 				</p>
 
-				<div className='grid grid-cols-2'>
+				<div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
 					<div className='grid grid-cols-1 place-content-center text-xl gap-10'>
 						<p className='text-center text-2xl font-semibold'>
 							{race.raceName}
@@ -100,12 +100,12 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 							Race results
 						</p>
 
-						<div className='grid grid-cols-3 gap-10'>
+						<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
 							{podium.map(pilot => (
 								<div
 									className={`${
 										pilot.position === '1' // -> check if the pilot on the podium is the 1st
-											? 'bg-gold' // -> we won't add translation, as it has to be the highest
+											? 'bg-gold row-start-1 row-end-3' // -> we won't add translation, as it has to be the highest
 											: pilot.position === '2' // -> if it's not first, check if it's second
 											? 'translate-y-16 bg-silver' // -> if true, translate him
 											: 'translate-y-32 bg-bronze' // -> if not, (which will result in him being 3rd) we'll translate him even more
@@ -129,8 +129,8 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 						</div>
 
 						<div className='flex items-center justify-center flex-col w-full pt-40'>
-							<div className='w-full grid grid-cols-6 px-10 pb-5 border-b-2 border-slate-500'>
-								<p>Position</p>
+							<div className='w-full grid grid-cols-5 lg:grid-cols-6 px-0 lg:px-10 pb-5 border-b-2 text-sm border-slate-500'>
+								<p className='hidden lg:block'>Position</p>
 								<p>Driver</p>
 								<p>Constructor</p>
 								<p>Time</p>
@@ -138,9 +138,9 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 								<p>Race status</p>
 							</div>
 							{notPodiumResults.map(pilot => (
-								<div className='border-b-2 border-slate-500 last:border-none px-10 py-3 w-full grid grid-cols-6'>
-									<p>{pilot.position}</p>
-									<p className='text-xl'>
+								<div className='border-b-2 border-slate-500 last:border-none px-0 lg:px-10 py-3 w-full grid gap-4 grid-cols-5 lg:grid-cols-6'>
+									<p className='hidden lg:block'>{pilot.position}</p>
+									<p className='text-lg lg:text-xl'>
 										{pilot.Driver.givenName}{' '}
 										<span
 											className={`${
@@ -177,7 +177,6 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 										{fastestLapOfTheRace.Driver.familyName}
 									</span>
 								</p>
-
 								<p className='text-xl'>
 									{fastestLapOfTheRace.FastestLap?.Time.time} in lap{' '}
 									{fastestLapOfTheRace.FastestLap?.lap}

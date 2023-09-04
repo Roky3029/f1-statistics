@@ -39,7 +39,7 @@ const Drivers = () => {
 					<div className='flex items-center justify-center space-x-7 text-2xl font-bold'>
 						Constructors' championship | Season {currentSeason}
 					</div>
-					<div className='grid grid-cols-2 w-[90%] place-content-center gap-3 pt-10'>
+					<div className='grid grid-cols-1 lg:grid-cols-2 w-[90%] place-content-center gap-3 pt-10'>
 						{standingList.map((constructor: ConstructorStanding) => (
 							<div
 								key={constructor.position}
