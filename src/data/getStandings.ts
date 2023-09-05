@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 
 export const getDriverStandings = async () => {
 	try {
-		const url = 'http://ergast.com/api/f1/current/driverStandings.json'
+		const url = 'https://ergast.com/api/f1/current/driverStandings.json'
 		const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 		const drivers = (await data.json()) as DriverStandings
 
@@ -21,7 +21,7 @@ export const getDriverStandings = async () => {
 }
 
 export const getConstructorStandings = async () => {
-	const url = 'http://ergast.com/api/f1/current/constructorStandings.json'
+	const url = 'https://ergast.com/api/f1/current/constructorStandings.json'
 	const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 	const constructors = (await data.json()) as ConstructorStandings
 
