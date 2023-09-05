@@ -129,23 +129,3 @@ const NextRace = async () => {
 }
 
 export default NextRace
-
-// {
-//   season: '2023',
-//   round: '13',
-//   Races: [
-//     {
-//       season: '2023',
-//       round: '13',
-//       url: 'https://en.wikipedia.org/wiki/2023_Dutch_Grand_Prix',
-//       raceName: 'Dutch Grand Prix',
-//       Circuit: [Object],
-//       date: '2023-08-27',
-//       time: '13:00:00Z',
-//       FirstPractice: [Object],
-//       SecondPractice: [Object],
-//       ThirdPractice: [Object],
-//       Qualifying: [Object]
-//     }
-//   ]
-// }

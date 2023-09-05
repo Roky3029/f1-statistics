@@ -6,9 +6,9 @@ export const getSchedule = async (round?: string) => {
 	let url
 
 	if (round) {
-		url = `https://ergast.com/api/f1/current/${round}.json`
+		url = `http://ergast.com/api/f1/current/${round}.json`
 	} else {
-		url = 'https://ergast.com/api/f1/current.json'
+		url = 'http://ergast.com/api/f1/current.json'
 	}
 
 	const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
