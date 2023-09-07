@@ -7,7 +7,7 @@ interface HeaderLinkProps {
 const HeaderLink: React.FC<HeaderLinkProps> = ({ text }) => {
 	return (
 		<Link
-			href={`/${text.toLowerCase()}`}
+			href={`/${text !== 'Home' ? text.toLowerCase() : ''}`}
 			className='rounded-lg bg-f1 px-3 py-2 font-bold text-white shadow-sm transition-all duration-300 hover:scale-105'
 		>
 			{text}

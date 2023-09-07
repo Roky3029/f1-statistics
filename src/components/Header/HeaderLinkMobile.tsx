@@ -8,7 +8,7 @@ interface HeaderLinkMobileProps {
 const HeaderLinkMobile: React.FC<HeaderLinkMobileProps> = ({ Icon, text }) => {
 	return (
 		<Link
-			href={`/${text.toLowerCase()}`}
+			href={`/${text !== 'Home' ? text.toLowerCase() : ''}`}
 			className='transition-all inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group'
 		>
 			{Icon}
