@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic'
-import Tabs from '../../components/Tabs/Tabs'
-import Calendar from './Calendar'
+import Tabs from '@/app/(site)/components/Tabs/Tabs'
+import Calendar from './components/Calendar'
 
 const Home = () => {
-	const NextRace = dynamic(() => import('./NextRace'), {
+	const NextRace = dynamic(() => import('./components/NextRace'), {
 		ssr: false
 	})
 

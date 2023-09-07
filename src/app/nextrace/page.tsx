@@ -5,6 +5,8 @@ import { getCountryFlag } from '@/helpers/getCountryFlag'
 import { type RaceTable } from '@/types/nextRaceTypes'
 import Image from 'next/image'
 import { formatTime, formatDate } from '@/helpers/formatData'
+import InformationParagraph from '@/components/InformationParagraph'
+import Title from '@/components/Title'
 
 const NextRace = async () => {
 	const { season, round, Races }: RaceTable = await getNextRace(true)
@@ -27,9 +29,7 @@ const NextRace = async () => {
 	return (
 		<div className='pb-10 w-full flex items-center justify-center flex-col'>
 			{/* dark:text-white */}
-			<p className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl '>
-				UPCOMING RACE
-			</p>
+			<Title text='Next race' />
 
 			<div className='bg-slate-300 rounded-lg shadow-md w-[90%] space-y-10 flex items-center p-5 justify-center flex-col'>
 				<p className='text-xl font-bold text-gray-900'>
@@ -40,44 +40,39 @@ const NextRace = async () => {
 					<div className='grid grid-cols-1 place-content-center text-xl gap-10'>
 						<p className='text-center text-2xl font-semibold'>{raceName}</p>
 
-						<p>
-							<span className='opacity-70'>Country: </span>
-							{Circuit.Location.country}{' '}
-							{getCountryFlag(Circuit.Location.country)}
-						</p>
-						<p>
-							<span className='opacity-70'>City: </span>
-							{Circuit.Location.locality}
-						</p>
-						<p>
-							<span className='opacity-70'>Circuit name: </span>
-							{Circuit.circuitName}
-						</p>
+						<InformationParagraph
+							data={`${Circuit.Location.country} ${getCountryFlag(
+								Circuit.Location.country
+							)}`}
+							title='Country'
+						/>
+						<InformationParagraph
+							data={Circuit.Location.locality}
+							title='City'
+						/>
+						<InformationParagraph
+							data={Circuit.circuitName}
+							title='Circuit name'
+						/>
 					</div>
 
 					<Image
-						src={`/circuits/${Circuit.Location.locality
-							.normalize('NFD')
-							.replace(/[\u0300-\u036f]/g, '')
-							.replace(/[^\x00-\x7F]/g, '')}.png`}
+						src={`/circuits/${Circuit.circuitId}.png`}
 						alt={`Image of the ${Circuit.Location.country}'s circuit`}
 						width={771}
 						height={434}
 					/>
 				</div>
 
-				<p className='mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
-					Time until next race
-				</p>
+				<Title small text='Time until next race' />
+
 				<Countdown
 					expiryTimestamp={
 						new Date(formatDate(date.toString())[1] + ' ' + formatTime(time))
 					}
 				/>
 
-				<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
-					Racing sessions
-				</p>
+				<Title text='Racing sessions' small />
 
 				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4'>
 					<Card

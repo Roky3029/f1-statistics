@@ -3,6 +3,9 @@ import { constructors } from '@/data/constructors'
 import { getDriverStandings } from '@/data/getStandings'
 import { formatDate } from '@/helpers/formatData'
 import { notFound } from 'next/navigation'
+import Title from '@/components/Title'
+import TableStats from './components/TableStats'
+import Data from './components/Data'
 
 const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 	const driverInfo = await getDriverInfo(params.driverId)
@@ -10,12 +13,14 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 
 	if (!driverInfo) notFound()
 
-	// console.log()
 	const [selectedDriver] = driverStandings.standingList.filter(
 		driver => driver.Driver.driverId === params.driverId
 	)
 
-	const { Driver: driver, Constructors } = selectedDriver
+	console.log(selectedDriver)
+
+	const { Driver: driver, Constructors: constructorArray } = selectedDriver
+	const [Constructor] = constructorArray
 
 	const date = formatDate(driver.dateOfBirth.toString())[0]
 
@@ -27,7 +32,7 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 						<p>{driver.givenName}</p>
 						<p
 							className={`${
-								(constructors as any)[Constructors[0].constructorId]
+								(constructors as any)[Constructor.constructorId]
 							} text-4xl font-bold`}
 						>
 							{driverInfo.familyName}
@@ -39,42 +44,21 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 					/>
 				</div>
 
-				<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
-					Championship stats
-				</p>
-				<div className='flex items-center justify-center flex-col lg:flex-row text-xl gap-5 lg:gap-56'>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Position:</span>{' '}
-						{selectedDriver.position}
-					</p>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Points:</span> {selectedDriver.points}
-					</p>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Winned races so far:</span>{' '}
-						{selectedDriver.wins}
-					</p>
-				</div>
+				<Title text='Championship stats' small />
+				<TableStats>
+					<Data text='Position' data={selectedDriver.position} />
+					<Data text='Points' data={selectedDriver.points} />
+					<Data text='Winned races so far' data={selectedDriver.wins} />
+					<Data text='Racing for' data={Constructor.name} />
+				</TableStats>
 
-				<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
-					Driver stats
-				</p>
-				<div className='flex items-center justify-center flex-col lg:flex-row text-xl gap-5 lg:gap-56'>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Code:</span> {driver.code}
-					</p>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Date of birth:</span> {date}
-					</p>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Nationality:</span>{' '}
-						{driver.nationality}
-					</p>
-					<p className='bg-slate-100 px-6 py-5 rounded-lg shadow-md'>
-						<span className='opacity-70'>Permanent number:</span>{' '}
-						{driver.permanentNumber}
-					</p>
-				</div>
+				<Title text='Driver stats' small />
+				<TableStats>
+					<Data text='Code' data={driver.code} />
+					<Data text='Date of birth' data={date} />
+					<Data text='Nationality' data={driver.nationality} />
+					<Data text='Permanent number' data={driver.permanentNumber} />
+				</TableStats>
 			</div>
 		</section>
 	)

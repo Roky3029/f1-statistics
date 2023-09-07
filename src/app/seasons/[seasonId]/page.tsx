@@ -1,3 +1,4 @@
+import PodiumStanding from '@/components/PodiumStanding'
 import { constructors } from '@/data/constructors'
 import { getSeasonResults } from '@/data/getSeasonResults'
 import { notFound } from 'next/navigation'
@@ -17,31 +18,15 @@ const Page = async ({ params }: { params: { seasonId: string } }) => {
 
 			<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
 				{podium.map(pilot => (
-					<div
-						className={`${
-							pilot.position === '1' // -> check if the pilot on the podium is the 1st
-								? 'bg-gold row-start-1 row-end-3' // -> we won't add translation, as it has to be the highest
-								: pilot.position === '2' // -> if it's not first, check if it's second
-								? 'translate-y-16 bg-silver' // -> if true, translate him
-								: 'translate-y-32 bg-bronze' // -> if not, (which will result in him being 3rd) we'll translate him even more
-						} flex flex-col items-center justify-center px-10 pt-4 rounded-lg shadow-md`}
-					>
-						<h2 className='text-2xl font-bold '>
-							{pilot.Driver.givenName} {pilot.Driver.familyName}
-						</h2>
-
-						<div className='flex items-center justify-center gap-10'>
-							<p>{pilot.points} points</p>
-						</div>
-
-						<p className='text-lg pt-10'>{pilot.Constructors[0].name}</p>
-						<img
-							src={`/drivers/${pilot.Driver.code || 'placeholder'}.png`}
-							width={256}
-							height={256}
-							alt=''
-						/>
-					</div>
+					<PodiumStanding
+						position={pilot.position}
+						givenName={pilot.Driver.givenName}
+						familyName={pilot.Driver.familyName}
+						points={pilot.points}
+						driverCode={pilot.Driver.code}
+						isSeasonResult
+						constructorName={pilot.Constructors[0].name}
+					/>
 				))}
 			</div>
 
@@ -55,9 +40,11 @@ const Page = async ({ params }: { params: { seasonId: string } }) => {
 				{notPodiumResults.map(pilot => (
 					<div className='border-b-2 border-slate-500 last:border-none px-0 lg:px-10 py-3 w-full grid grid-cols-3 lg:grid-cols-4 gap-24 lg:gap-0'>
 						<p className='items-center hidden lg:flex'>{pilot.position}</p>
-						<p className='text-lg flex items-center gap-3'>
-							{pilot.Driver.givenName}{' '}
-							<span className='text-2xl'>{pilot.Driver.familyName}</span>
+						<p className='text-lg'>
+							{pilot.Driver.givenName}
+							<span className='text-lg md:text-2xl'>
+								{` ${pilot.Driver.familyName}`}
+							</span>
 						</p>
 						<p className='flex items-center'>{pilot.Constructors[0].name}</p>
 						<p className='flex items-center'>{pilot.points}</p>

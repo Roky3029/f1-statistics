@@ -9,7 +9,7 @@ const Countdown = ({ expiryTimestamp }: { expiryTimestamp: Date }) => {
 	})
 
 	return (
-		<div className='grid lg:grid-cols-4 place-content-center self-center grid-cols-2 pt-10 gap-10'>
+		<div className='grid lg:grid-cols-4 place-content-center self-center grid-cols-1 md:grid-cols-2 pt-10 gap-10'>
 			<p className='flex items-center justify-center flex-col bg-slate-300 w-40 h-40 rounded-full shadow-lg border-4 border-purple-500'>
 				<span className='text-center text-4xl'>{days}</span>{' '}
 				<span className='text-xl'>days</span>

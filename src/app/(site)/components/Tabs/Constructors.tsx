@@ -1,7 +1,8 @@
 import { getConstructorStandings } from '@/data/getStandings'
-import { type ConstructorStanding } from '../../types/constructorTypes'
+import { type ConstructorStanding } from '@/types/constructorTypes'
 import { useEffect, useState } from 'react'
-import LoadingModal from '../Loading'
+import LoadingModal from '@/components/Loading'
+import SingleTab from './SingleTab'
 
 const constructors = {
 	williams: 'text-williams',
@@ -36,42 +37,19 @@ const Drivers = () => {
 		<>
 			{!loading ? (
 				<>
-					<div className='flex items-center justify-center space-x-7 text-2xl font-bold'>
-						Constructors' championship | Season {currentSeason}
+					<div className='grid grid-cols-1 place-content-center text-center gap-5 text-2xl font-bold'>
+						<span>Constructors' championship</span>{' '}
+						<span>Season {currentSeason}</span>
 					</div>
 					<div className='grid grid-cols-1 lg:grid-cols-2 w-[90%] place-content-center gap-3 pt-10'>
 						{standingList.map((constructor: ConstructorStanding) => (
-							<div
+							<SingleTab
+								constructorId={constructor.Constructor.constructorId}
+								constructorName={constructor.Constructor.name}
 								key={constructor.position}
-								className='text-xl bg-blue-200 py-6 flex items-center rounded-xl space-x-10'
-							>
-								<span
-									className={`${
-										constructor.position === '1' ? 'text-gold' : ''
-									} ${constructor.position === '2' ? 'text-silver' : ''} ${
-										constructor.position === '3' ? 'text-bronze' : ''
-									}  border-r-1 pl-8 pr-10 py-4 w-[10%] text-center border-black text-2xl`}
-								>
-									{constructor.position}
-								</span>
-								<div className='flex items-center justify-between w-full pr-10'>
-									<div className='flex flex-col'>
-										<span
-											className={`text-3xl ${
-												(constructors as any)[
-													constructor.Constructor.constructorId
-												]
-											}`}
-										>
-											{constructor.Constructor.name}
-										</span>
-									</div>
-
-									<div>
-										<span className='text-3xl'>{constructor.points}</span>
-									</div>
-								</div>
-							</div>
+								points={constructor.points}
+								position={constructor.position}
+							/>
 						))}
 					</div>
 				</>

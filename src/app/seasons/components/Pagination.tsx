@@ -1,5 +1,6 @@
-import Link from 'next/link'
 import { Dispatch, SetStateAction } from 'react'
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+import PaginationButton from './PaginationButton'
 
 interface PaginationTypes {
 	showingNumber: number
@@ -41,51 +42,21 @@ const Pagination: React.FC<PaginationTypes> = ({
 				</span>
 				Entries
 			</span>
-			<div className='inline-flex mt-2 xs:mt-0'>
-				<button
-					disabled={isFirstPage}
-					onClick={() => setPage(pageState - 1)}
-					className='flex items-center justify-center px-4 h-10 text-base font-medium text-white transition-all bg-gray-500 rounded-l hover:bg-gray-600 disabled:pointer-events-none disabled:scale-95 disabled:opacity-70'
+			<div className='inline-flex mt-2 xs:mt-0 gap-1'>
+				<PaginationButton
+					handleClick={() => setPage(pageState - 1)}
+					isFirstOrLastPage={isFirstPage}
 				>
-					<svg
-						className='w-3.5 h-3.5 mr-2'
-						aria-hidden='true'
-						xmlns='http://www.w3.org/2000/svg'
-						fill='none'
-						viewBox='0 0 14 10'
-					>
-						<path
-							stroke='currentColor'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							strokeWidth='2'
-							d='M13 5H1m0 0 4 4M1 5l4-4'
-						/>
-					</svg>
+					<AiOutlineArrowLeft />
 					Previous
-				</button>
-				<button
-					disabled={isLastPage}
-					onClick={() => setPage(pageState + 1)}
-					className='flex items-center justify-center px-4 h-10 text-base font-medium text-white transition-all bg-gray-500 border-0 border-l border-gray-700 rounded-r hover:bg-gray-600 disabled:pointer-events-none disabled:scale-95 disabled:opacity-70'
+				</PaginationButton>
+				<PaginationButton
+					handleClick={() => setPage(pageState + 1)}
+					isFirstOrLastPage={isLastPage}
 				>
 					Next
-					<svg
-						className='w-3.5 h-3.5 ml-2'
-						aria-hidden='true'
-						xmlns='http://www.w3.org/2000/svg'
-						fill='none'
-						viewBox='0 0 14 10'
-					>
-						<path
-							stroke='currentColor'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							strokeWidth='2'
-							d='M1 5h12m0 0L9 1m4 4L9 9'
-						/>
-					</svg>
-				</button>
+					<AiOutlineArrowRight />
+				</PaginationButton>
 			</div>
 		</div>
 	)

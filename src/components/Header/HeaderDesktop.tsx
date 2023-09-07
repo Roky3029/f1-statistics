@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Titillium_Web } from 'next/font/google'
+import HeaderLink from './HeaderLinkDesktop'
+import { LINK_LIST } from '@/data/consts'
 
 const font = Titillium_Web({
 	weight: ['400', '700'],
@@ -23,24 +25,9 @@ const HeaderDesktop = () => {
 			</Link>
 
 			<nav className='flex items-center justify-center gap-16'>
-				<Link
-					href='/seasons'
-					className='rounded-lg bg-f1 px-3 py-2 font-bold text-white shadow-sm transition-all duration-300 hover:scale-105'
-				>
-					Seasons
-				</Link>
-				<Link
-					href='/drivers'
-					className='rounded-lg bg-f1 px-3 py-2 font-bold text-white shadow-sm transition-all duration-300 hover:scale-105'
-				>
-					Drivers
-				</Link>
-				<Link
-					href='/circuits'
-					className='rounded-lg bg-f1 px-3 py-2 font-bold text-white shadow-sm transition-all duration-300 hover:scale-105'
-				>
-					Circuits
-				</Link>
+				{LINK_LIST.map(link => (
+					<HeaderLink text={link} key={link} />
+				))}
 			</nav>
 		</>
 	)

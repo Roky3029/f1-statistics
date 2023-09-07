@@ -4,22 +4,23 @@ import React from 'react'
 import { Tabs, Tab } from '@nextui-org/react'
 import Drivers from './Drivers'
 import Constructors from './Constructors'
+import Title from '@/components/Title'
 
 export default function TabSwitcher() {
 	return (
 		<div className='space-y-5 flex w-full flex-col items-center justify-center text-2xl'>
-			<h2>Championship Standings</h2>
+			<Title text='Championship standings' small />
 			<Tabs aria-label='Options' className='flex items-center justify-center'>
 				<Tab
 					key='drivers'
-					title='Driver standings'
+					title='Drivers'
 					className='flex items-center justify-center flex-col text-xl px-4 py-2 w-full'
 				>
 					<Drivers />
 				</Tab>
 				<Tab
 					key='constructors'
-					title='Constructors standings'
+					title='Constructors'
 					className='flex items-center justify-center flex-col text-xl px-4 py-2 w-full'
 				>
 					<Constructors />

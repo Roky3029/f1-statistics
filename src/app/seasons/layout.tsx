@@ -1,6 +1,6 @@
 import '@/app/(site)/globals.css'
 import type { Metadata } from 'next'
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import { Providers } from '@/app/(site)/providers'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
