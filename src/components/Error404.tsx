@@ -39,7 +39,8 @@ const Error404: React.FC<Error404Props> = ({ isNot404, text }) => {
 								href='/'
 								className='transition-all underline hover:text-gray-300 block mt-5'
 							>
-								Continue looking statistics of other drivers
+								"In the meantime, you can continue looking statistics of other
+								drivers by clicking here"
 							</Link>
 						</p>
 					) : (

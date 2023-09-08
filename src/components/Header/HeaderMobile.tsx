@@ -23,7 +23,6 @@ export default function HeaderMobile() {
 							Icon={(iconsOfLinks as any)[link]}
 							text={link}
 							key={link}
-							isDisabled={link === 'Seasons'}
 						/>
 					))}
 				</div>
