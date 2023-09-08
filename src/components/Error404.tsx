@@ -15,8 +15,8 @@ interface Error404Props {
 
 const Error404: React.FC<Error404Props> = ({ isNot404, text }) => {
 	return (
-		<section className='flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-64 w-[90%] px-32 py-16'>
-			<div className='bg-gray-600 text-white border-t-8 border-red-600 w-1/2'>
+		<section className='flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-64 lg:w-[70%]'>
+			<div className='bg-gray-600 text-white border-t-8 border-red-600 w-[90%] lg:w-1/2'>
 				<div
 					className={`bg-gray-800 px-3 py-2 text-2xl ${font.className} font-extrabold`}
 				>
