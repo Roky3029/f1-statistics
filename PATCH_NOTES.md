@@ -1,5 +1,9 @@
 # PATCH NOTES
 
+### Patch 1.1.1.1 ( 8/9/2023 )
+
+- DISABLED: Disabled the page to watch all the seasons due to a unexpected problem. When solved it will be activated again
+
 ### Version 1.1.1 ( 7/9/2023 )
 
 - BUG: Solved a problem which threw a 404 when clicking the home link

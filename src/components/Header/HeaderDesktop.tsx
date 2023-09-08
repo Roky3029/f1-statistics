@@ -26,7 +26,7 @@ const HeaderDesktop = () => {
 
 			<nav className='flex items-center justify-center gap-16'>
 				{LINK_LIST.map(link => (
-					<HeaderLink text={link} key={link} />
+					<HeaderLink text={link} key={link} isDisabled={link === 'Seasons'} />
 				))}
 			</nav>
 		</>

@@ -8,10 +8,15 @@ const font = Titillium_Web({
 	subsets: ['latin']
 })
 
-const Error404 = () => {
+interface Error404Props {
+	text?: string
+	isNot404?: boolean
+}
+
+const Error404: React.FC<Error404Props> = ({ isNot404, text }) => {
 	return (
-		<section className='grid place-content-center grid-cols-1 xl:grid-cols-2 gap-10 xl:gap-64 w-[85%] px-32 py-16'>
-			<div className='bg-gray-600 text-white w-fit border-t-8 border-red-600'>
+		<section className='flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-64 w-[90%] px-32 py-16'>
+			<div className='bg-gray-600 text-white border-t-8 border-red-600 w-1/2'>
 				<div
 					className={`bg-gray-800 px-3 py-2 text-2xl ${font.className} font-extrabold`}
 				>
@@ -27,31 +32,45 @@ const Error404 = () => {
 				</div>
 				<div className='px-10 font-bold text-3xl pt-5 pb-10 space-y-5'>
 					<span>"Box box"</span>
-					<p>
-						"You went to far at turn 1, try to recover by{' '}
-						<Link
-							href='/'
-							className='transition-all underline hover:text-gray-300'
-						>
-							returning to the track by clicking here
-						</Link>
-						"
-					</p>
+					{text ? (
+						<p>
+							"{text}"
+							<Link
+								href='/'
+								className='transition-all underline hover:text-gray-300 block mt-5'
+							>
+								Continue looking statistics of other drivers
+							</Link>
+						</p>
+					) : (
+						<p>
+							"You went to far at turn 1, try to recover by{' '}
+							<Link
+								href='/'
+								className='transition-all underline hover:text-gray-300'
+							>
+								returning to the track by clicking here
+							</Link>
+							"
+						</p>
+					)}
 				</div>
 			</div>
 
-			<div className='flex items-center justify-center flex-col gap-52'>
-				<div className='flex items-center justify-center gap-10 bg-gray-500 text-2xl pr-5 rounded-md shadow-md text-gray-300'>
-					<p className='border-r-2 px-5 border-gray-300 py-3 font-extrabold'>
-						404
-					</p>
-					<div className='flex items-center justify-center gap-2 font-bold'>
-						<MdComputer />
-						<p>USR</p>
+			{!isNot404 && (
+				<div className='flex items-center justify-center flex-col gap-52'>
+					<div className='flex items-center justify-center gap-10 bg-gray-500 text-2xl pr-5 rounded-md shadow-md text-gray-300'>
+						<p className='border-r-2 px-5 border-gray-300 py-3 font-extrabold'>
+							404
+						</p>
+						<div className='flex items-center justify-center gap-2 font-bold'>
+							<MdComputer />
+							<p>USR</p>
+						</div>
+						<p className='italic'>OUT</p>
 					</div>
-					<p className='italic'>OUT</p>
 				</div>
-			</div>
+			)}
 		</section>
 	)
 }

@@ -5,6 +5,7 @@ import Pagination from './components/Pagination'
 import { useEffect, useState } from 'react'
 import { HashLoader } from 'react-spinners'
 import SeasonElement from './components/SeasonElement'
+import Error404 from '@/components/Error404'
 
 const SeasonsHome = () => {
 	const [data, setData] = useState<any>(null)
@@ -26,7 +27,7 @@ const SeasonsHome = () => {
 
 	return (
 		<>
-			{loading ? (
+			{/* {loading ? (
 				<HashLoader />
 			) : (
 				<>
@@ -45,7 +46,11 @@ const SeasonsHome = () => {
 						setPage={setPage}
 					/>
 				</>
-			)}
+			)} */}
+			<Error404
+				text='Due to an unexpected problem with the car, we will have to stay in boxes until the problem is solved'
+				isNot404
+			/>
 		</>
 	)
 }
