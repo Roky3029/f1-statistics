@@ -1,23 +1,21 @@
 import PodiumStanding from '@/components/PodiumStanding'
-import { constructors } from '@/data/constructors'
 import { getSeasonResults } from '@/data/getSeasonResults'
 import { notFound } from 'next/navigation'
-import Error404 from '@/components/Error404'
 
 const Page = async ({ params }: { params: { seasonId: string } }) => {
-	// const standingTable = await getSeasonResults(+params.seasonId)
-	// if (!standingTable) notFound()
+	const standingTable = await getSeasonResults(+params.seasonId)
+	if (!standingTable) notFound()
 
-	// const podium = [standingTable[1], standingTable[0], standingTable[2]]
-	// const notPodiumResults = standingTable.filter(result => +result.position > 3)
+	const podium = [standingTable[1], standingTable[0], standingTable[2]]
+	const notPodiumResults = standingTable.filter(result => +result.position > 3)
 
 	return (
 		<>
-			{/* <p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
+			<p className='mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl '>
 				Season {params.seasonId} results
 			</p>
 
-			<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
+			<div className='grid grid-cols-1 w-1/2 lg:grid-cols-3 gap-5 lg:gap-10'>
 				{podium.map(pilot => (
 					<PodiumStanding
 						position={pilot.position}
@@ -51,11 +49,7 @@ const Page = async ({ params }: { params: { seasonId: string } }) => {
 						<p className='flex items-center'>{pilot.points}</p>
 					</div>
 				))}
-			</div> */}
-			<Error404
-				text='Due to an unexpected problem with the car, we will have to stay in boxes until the problem is solved'
-				isNot404
-			/>
+			</div>
 		</>
 	)
 }

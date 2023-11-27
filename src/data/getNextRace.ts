@@ -10,17 +10,17 @@ export const getNextRace = async (getAllData?: boolean) => {
 
 	return {
 		ronda: nextRaceData.MRData.RaceTable.round, // The race's position in the calendar of that year
-		race: nextRaceData.MRData.RaceTable.Races[0].raceName, // The title of the race (Eg: Dutch Grand Prix)
+		race: nextRaceData.MRData.RaceTable.Races[0]?.raceName ?? null, // The title of the race (Eg: Dutch Grand Prix)
 		fecha: () => {
 			// Returns the date of the race itself
-			const fecha = nextRaceData.MRData.RaceTable.Races[0].date
+			const fecha = nextRaceData.MRData.RaceTable.Races[0]?.date ?? null
 			const [year, month, day] = fecha.split('-')
 			// fecha()[0] return the date formatted in the normal mode (DD/MM/YYYY) and fecha()[1] returns the date in the way the new Date() can parse it
 			return [day + '/' + month + '/' + year, month + '/' + day + '/' + year]
 		},
 		horaCarrera: () => {
 			// Returns the hour of the race in the Europe/Madrid timezone based on the UTC hour
-			const time = nextRaceData.MRData.RaceTable.Races[0].time
+			const time = nextRaceData.MRData.RaceTable.Races[0]?.time ?? null
 			const [horas, minutos, segundos] = time.slice(0, -1).split(':')
 
 			const horaLocal = new Date()
@@ -32,7 +32,9 @@ export const getNextRace = async (getAllData?: boolean) => {
 				timeZone: 'Europe/Madrid'
 			})
 		},
-		circuit: nextRaceData.MRData.RaceTable.Races[0].Circuit.circuitName, // Returns the circuit name
-		country: nextRaceData.MRData.RaceTable.Races[0].Circuit.Location.country // The country where the GP takes place
+		circuit:
+			nextRaceData.MRData.RaceTable.Races[0]?.Circuit.circuitName ?? null, // Returns the circuit name
+		country:
+			nextRaceData.MRData.RaceTable.Races[0]?.Circuit.Location.country ?? null // The country where the GP takes place
 	}
 }

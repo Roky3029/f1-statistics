@@ -11,6 +11,8 @@ import PodiumStanding from '../../../components/PodiumStanding'
 import ResultsTable from './components/ResultsTable'
 import FastestLap from './components/FastesetLap'
 import Title from '@/components/Title'
+import { getFastestPitStop } from '@/data/getFastestPitStop'
+import FastestPitStop from './components/FastestPitStop'
 
 const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 	const Countdown = dynamic(() => import('@/components/Countdown'), {
@@ -31,6 +33,8 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 	)
 
 	const hasDatePassedNow = hasDatePassed(dateOfRace)
+
+	const fastestPitStop = await getFastestPitStop(params.raceRound)
 
 	return (
 		<div className='pb-10 w-full flex items-center justify-center flex-col'>
@@ -108,7 +112,17 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 							<ResultsTable raceResults={raceResults} />
 						</div>
 
-						<FastestLap raceResults={raceResults} />
+						<div className='grid gap-10 grid-cols-1 md:grid-cols-2 w-full'>
+							<FastestLap raceResults={raceResults} />
+
+							<FastestPitStop
+								constructorId={fastestPitStop.constructorId}
+								driverName={fastestPitStop.driverName}
+								duration={fastestPitStop.duration}
+								familyName={fastestPitStop.driverFamilyName}
+								lap={fastestPitStop.lap}
+							/>
+						</div>
 					</>
 				)}
 			</div>

@@ -1,8 +1,19 @@
 import { APP_VERSION } from '@/data/consts'
 import Image from 'next/image'
 import { BsGithub, BsTwitter } from 'react-icons/bs'
+import SocialLink from './SocialLink'
 
 const Footer = () => {
+	const socialLinks = [
+		{
+			link: 'https://github.com/Roky3029',
+			icon: <BsGithub size={50} />
+		},
+		{
+			link: 'https://twitter.com/Dev30Kirky',
+			icon: <BsTwitter size={50} />
+		}
+	]
 	return (
 		<footer className='border-t-1 border-black w-full flex items-center justify-center p-10 flex-col'>
 			<p>
@@ -29,22 +40,9 @@ const Footer = () => {
 				</div>
 
 				<div className='flex items-center justify-center gap-10'>
-					<a
-						href='https://twitter.com/Dev30Kirky'
-						className='transition-all hover:scale-[1.2]'
-						target='_blank'
-						rel='noreferrer'
-					>
-						<BsTwitter size={50} />
-					</a>
-					<a
-						href='https://github.com/Roky3029'
-						target='_blank'
-						rel='noreferrer'
-						className='transition-all hover:scale-[1.2]'
-					>
-						<BsGithub size={50} />
-					</a>
+					{socialLinks.map(link => (
+						<SocialLink icon={link.icon} link={link.link} key={link.link} />
+					))}
 				</div>
 
 				<div className='flex items-center justify-center opacity-40'>

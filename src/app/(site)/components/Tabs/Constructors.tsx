@@ -36,7 +36,7 @@ const Drivers = () => {
 	return (
 		<>
 			{!loading ? (
-				<>
+				<div className='flex flex-col items-center justify-center'>
 					<div className='grid grid-cols-1 place-content-center text-center gap-5 text-2xl font-bold'>
 						<span>Constructors' championship</span>{' '}
 						<span>Season {currentSeason}</span>
@@ -52,7 +52,7 @@ const Drivers = () => {
 							/>
 						))}
 					</div>
-				</>
+				</div>
 			) : (
 				<LoadingModal />
 			)}

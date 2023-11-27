@@ -1,9 +1,10 @@
-import '@/app/(site)/globals.css'
+/* eslint-disable */
+
+import './globals.css'
 import type { Metadata } from 'next'
 import Header from '@/components/Header/Header'
-import { Providers } from '@/app/(site)/providers'
-import Footer from '@/components/Footer'
-import ScrollToTop from '@/components/ScrollToTop'
+import { Providers } from './providers'
+import Footer from '@/components/Footer/Footer'
 
 export const metadata: Metadata = {
 	title: 'F1 Statistics',
@@ -26,7 +27,6 @@ export default function RootLayout({
 						<Header />
 						{children}
 						<Footer />
-						<ScrollToTop />
 					</div>
 				</Providers>
 			</body>

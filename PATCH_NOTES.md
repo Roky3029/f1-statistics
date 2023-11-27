@@ -1,5 +1,15 @@
 # PATCH NOTES
 
+### Version 1.2.0 ( 27/11/2023 )
+
+- FEATURE: Replaced the seasons results with a Blog section which is still in development
+- REMOVED: As the 2023 season has ended, I've removed the section with that information, when the season 2024 starts, it will automatically show again
+- FEATURE: Removed the old tab feature in the drivers and constructors standings and replaced with a new one
+- BUG: Solved a problem which broke the podium layout in the seasons statistics
+- REMOVED: Deleted the button which worked as a Scroll To Top as it was unnecessary
+- OPTIMIZATION: Footer separated into his own folder for more organization
+- FEATURE: Added in the race results a section of the fastest pit stop of the race
+
 ### Patch 1.1.1.1 ( 8/9/2023 )
 
 - DISABLED: Disabled the page to watch all the seasons due to a unexpected problem. When solved it will be activated again
