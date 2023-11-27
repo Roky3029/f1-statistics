@@ -61,7 +61,6 @@ const CircuitIdPage = async ({ params }: { params: { circuitId: string } }) => {
 						height={434}
 					/>
 				</div>
-				T
 			</div>
 		</div>
 	)
