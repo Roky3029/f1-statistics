@@ -7,6 +7,7 @@ interface PostMetadata {
 	subtitle: string
 	slug: string
 	author: string
+	introduction: boolean
 }
 
 export const getPostMetadata = (): PostMetadata[] => {
@@ -23,6 +24,7 @@ export const getPostMetadata = (): PostMetadata[] => {
 			date: matterResult.data.date,
 			subtitle: matterResult.data.subtitle,
 			author: matterResult.data.author,
+			introduction: matterResult.data.introduction,
 			slug: fileName.replace('.md', '')
 		}
 	})

@@ -32,19 +32,25 @@ const NextRace = async () => {
 						<p className='text-lg font-bold'>{fecha()[0]}</p>
 					</div>
 
-					<Countdown
-						expiryTimestamp={new Date(fecha()[1] + ' ' + horaCarrera())}
-					/>
+					{!horaCarrera() ? (
+						<></>
+					) : (
+						<>
+							<Countdown
+								expiryTimestamp={new Date(fecha()[1] + ' ' + horaCarrera())}
+							/>
 
-					<div className='grid place-content-center'>
-						<Link
-							href='/nextrace'
-							className='flex w-fit items-center justify-center space-x-2 rounded-lg bg-f1 px-5 py-3 text-lg text-white shadow-lg transition-all duration-300 hover:scale-105'
-						>
-							<AiOutlineLink size={16} />
-							<span className='text-sm'>See the full schedule</span>
-						</Link>
-					</div>
+							<div className='grid place-content-center'>
+								<Link
+									href='/nextrace'
+									className='flex w-fit items-center justify-center space-x-2 rounded-lg bg-f1 px-5 py-3 text-lg text-white shadow-lg transition-all duration-300 hover:scale-105'
+								>
+									<AiOutlineLink size={16} />
+									<span className='text-sm'>See the full schedule</span>
+								</Link>
+							</div>
+						</>
+					)}
 				</section>
 			)}
 		</>

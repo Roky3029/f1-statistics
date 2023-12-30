@@ -1,5 +1,5 @@
 import { AiFillHome } from 'react-icons/ai'
-import { CiViewTimeline } from 'react-icons/ci'
+import { BiNotepad } from 'react-icons/bi'
 import { BsFillCarFrontFill, BsMapFill } from 'react-icons/bs'
 import { LINK_LIST } from '@/data/consts'
 import HeaderLinkMobile from './HeaderLinkMobile'
@@ -10,7 +10,7 @@ export default function HeaderMobile() {
 
 	const iconsOfLinks = {
 		Home: <AiFillHome className={linkClasses} />,
-		Seasons: <CiViewTimeline className={linkClasses} />,
+		Blog: <BiNotepad className={linkClasses} />,
 		Drivers: <BsFillCarFrontFill className={linkClasses} />,
 		Circuits: <BsMapFill className={linkClasses} />
 	}

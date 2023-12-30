@@ -6,6 +6,7 @@ interface Post {
 	subtitle: string
 	slug: string
 	author: string
+	introduction: boolean
 }
 
 interface PostProps {

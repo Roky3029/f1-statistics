@@ -11,7 +11,7 @@ import Title from '@/components/Title'
 const NextRace = async () => {
 	const { season, round, Races }: RaceTable = await getNextRace(true)
 
-	if (!season || !round || !Races[0]?.Circuit) {
+	if (!season || !round || !Races[0]?.Circuit || !Races[0]?.time) {
 		return (
 			<div className='pb-10 w-full flex items-center justify-center flex-col'>
 				<Title text={`¡The season has ended. See you in 2024!`} small />

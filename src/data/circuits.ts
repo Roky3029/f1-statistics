@@ -1,6 +1,6 @@
-export const circuitData = [
+const data = [
 	{
-		id: 'americas',
+		id: 'United_States',
 		firstRace: '2012',
 		numberOfLaps: '56',
 		oneLapDistance: '5.513',
@@ -9,7 +9,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Charles Leclerc (2019)'
 	},
 	{
-		id: 'jeddah',
+		id: 'Saudi_Arabia',
 		firstRace: '2021',
 		numberOfLaps: '50',
 		oneLapDistance: '6.174',
@@ -18,7 +18,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Lewis Hamilton (2021)'
 	},
 	{
-		id: 'zandvoort',
+		id: 'Netherlands',
 		firstRace: '1952',
 		numberOfLaps: '72',
 		oneLapDistance: '4.259',
@@ -27,7 +27,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Lewis Hamilton (2021)'
 	},
 	{
-		id: 'rodriguez',
+		id: 'Mexico',
 		firstRace: '1963',
 		numberOfLaps: '71',
 		oneLapDistance: '4.304',
@@ -36,7 +36,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Valtteri Bottas (2021)'
 	},
 	{
-		id: 'yas_marina',
+		id: 'United_Arab_Emirates',
 		firstRace: '2009',
 		numberOfLaps: '58',
 		oneLapDistance: '5.281',
@@ -45,7 +45,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Max Verstappen (2021)'
 	},
 	{
-		id: 'spa',
+		id: 'Belgium',
 		firstRace: '1950',
 		numberOfLaps: '44',
 		oneLapDistance: '7.004',
@@ -54,7 +54,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Valtteri Bottas (2018)'
 	},
 	{
-		id: 'suzuka',
+		id: 'Japan',
 		firstRace: '1987',
 		numberOfLaps: '53',
 		oneLapDistance: '5.807',
@@ -63,7 +63,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Lewis Hamilton (2019)'
 	},
 	{
-		id: 'red_bull_ring',
+		id: 'Austria',
 		firstRace: '1970',
 		numberOfLaps: '71',
 		oneLapDistance: '4.318',
@@ -72,7 +72,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Carlos Sainz (2020)'
 	},
 	{
-		id: 'baku',
+		id: 'Azerbaijan',
 		firstRace: '2016',
 		numberOfLaps: '51',
 		oneLapDistance: '6.003',
@@ -81,7 +81,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Charles Leclerc (2019)'
 	},
 	{
-		id: 'albert_park',
+		id: 'Australia',
 		firstRace: '1996',
 		numberOfLaps: '58',
 		oneLapDistance: '5.278',
@@ -90,7 +90,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Sergio Perez (2023)'
 	},
 	{
-		id: 'silverstone',
+		id: 'Great_Britain',
 		firstRace: '1950',
 		numberOfLaps: '52',
 		oneLapDistance: '5.891',
@@ -99,7 +99,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Max Verstappen (2020)'
 	},
 	{
-		id: 'miami',
+		id: 'Miami',
 		firstRace: '2022',
 		numberOfLaps: '57',
 		oneLapDistance: '5.412',
@@ -108,7 +108,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Max Verstappen (2023)'
 	},
 	{
-		id: 'interlagos',
+		id: 'Brazil',
 		firstRace: '1973',
 		numberOfLaps: '71',
 		oneLapDistance: '4.309',
@@ -117,16 +117,25 @@ export const circuitData = [
 		authorOfFastestLap: 'Valtteri Bottas (2018)'
 	},
 	{
-		id: 'marina_bay',
-		firstRace: '2008',
-		numberOfLaps: '62',
-		oneLapDistance: '(N/A)',
-		raceDistance: '(N/A)',
-		fastestLap: 'N/A',
-		authorOfFastestLap: '(N/A)'
+		id: 'China',
+		firstRace: '2004',
+		numberOfLaps: '56',
+		oneLapDistance: '5.451',
+		raceDistance: '305.066',
+		fastestLap: '1:32:238',
+		authorOfFastestLap: 'Michael Schumacher (2004)'
 	},
 	{
-		id: 'villeneuve',
+		id: 'Singapore',
+		firstRace: '2008',
+		numberOfLaps: '62',
+		oneLapDistance: '4.94',
+		raceDistance: '306.143',
+		fastestLap: '1:35.867',
+		authorOfFastestLap: 'Lewis Hamilton (2023)'
+	},
+	{
+		id: 'Canada',
 		firstRace: '1978',
 		numberOfLaps: '70',
 		oneLapDistance: '4.361',
@@ -135,7 +144,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Valtteri Bottas (2019)'
 	},
 	{
-		id: 'imola',
+		id: 'EmiliaRomagna',
 		firstRace: '1980',
 		numberOfLaps: '63',
 		oneLapDistance: '4.909',
@@ -144,16 +153,16 @@ export const circuitData = [
 		authorOfFastestLap: 'Lewis Hamilton (2020)'
 	},
 	{
-		id: 'vegas',
+		id: 'Las_Vegas',
 		firstRace: '2023',
 		numberOfLaps: '50',
-		oneLapDistance: '6.12',
-		raceDistance: '305.88',
-		fastestLap: 'N/A',
-		authorOfFastestLap: '(N/A)'
+		oneLapDistance: '6.201',
+		raceDistance: '309.958',
+		fastestLap: '1:35.490',
+		authorOfFastestLap: 'Oscar Piastri (2023)'
 	},
 	{
-		id: 'monaco',
+		id: 'Monaco',
 		firstRace: '1950',
 		numberOfLaps: '78',
 		oneLapDistance: '3.337',
@@ -162,16 +171,16 @@ export const circuitData = [
 		authorOfFastestLap: 'Lewis Hamilton (2021)'
 	},
 	{
-		id: 'losail',
+		id: 'Qatar',
 		firstRace: '2021',
 		numberOfLaps: '57',
-		oneLapDistance: '5.418',
-		raceDistance: '308.826',
-		fastestLap: '(N/A)',
-		authorOfFastestLap: '(N/A) (N/A)'
+		oneLapDistance: '5.419',
+		raceDistance: '308.611',
+		fastestLap: '1:24.319',
+		authorOfFastestLap: 'Max Verstappen (2023)'
 	},
 	{
-		id: 'bahrain',
+		id: 'Bahrain',
 		firstRace: '2004',
 		numberOfLaps: '57',
 		oneLapDistance: '5.412',
@@ -180,7 +189,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Pedro de la Rosa (2005)'
 	},
 	{
-		id: 'monza',
+		id: 'Italy',
 		firstRace: '1950',
 		numberOfLaps: '53',
 		oneLapDistance: '5.793',
@@ -189,7 +198,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Rubens Barrichello (2004)'
 	},
 	{
-		id: 'catalunya',
+		id: 'Spain',
 		firstRace: '1991',
 		numberOfLaps: '66',
 		oneLapDistance: '4.657',
@@ -198,7 +207,7 @@ export const circuitData = [
 		authorOfFastestLap: 'Max Verstappen (2023)'
 	},
 	{
-		id: 'hungaroring',
+		id: 'Hungary',
 		firstRace: '1986',
 		numberOfLaps: '70',
 		oneLapDistance: '4.381',

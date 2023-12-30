@@ -29,12 +29,12 @@ const Drivers = () => {
 						<span>Season {currentSeason}</span>
 					</div>
 					<div className='grid grid-cols-1 lg:grid-cols-2 w-[90%] place-content-center gap-3 pt-10'>
-						{standingList.map((driver: DriverStanding) => (
+						{standingList.map((driver: DriverStanding, i) => (
 							<SingleTab
 								constructorId={driver.Constructors[0].constructorId}
 								familyName={driver.Driver.familyName}
 								givenName={driver.Driver.givenName}
-								key={driver.Driver.code}
+								key={i}
 								points={driver.points}
 								position={driver.position}
 							/>

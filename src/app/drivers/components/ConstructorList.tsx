@@ -1,6 +1,5 @@
 import { getDriverStandings } from '@/data/getStandings'
 import { constructors as constructorList } from '@/data/constructors'
-import Link from 'next/link'
 import DriverItem from './DriverItem'
 
 interface ConstructorListProps {

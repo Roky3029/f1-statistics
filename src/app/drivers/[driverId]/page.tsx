@@ -17,8 +17,6 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 		driver => driver.Driver.driverId === params.driverId
 	)
 
-	console.log(selectedDriver)
-
 	const { Driver: driver, Constructors: constructorArray } = selectedDriver
 	const [Constructor] = constructorArray
 

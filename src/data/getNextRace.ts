@@ -21,6 +21,8 @@ export const getNextRace = async (getAllData?: boolean) => {
 		horaCarrera: () => {
 			// Returns the hour of the race in the Europe/Madrid timezone based on the UTC hour
 			const time = nextRaceData.MRData.RaceTable.Races[0]?.time ?? null
+
+			if (!time) return null
 			const [horas, minutos, segundos] = time.slice(0, -1).split(':')
 
 			const horaLocal = new Date()

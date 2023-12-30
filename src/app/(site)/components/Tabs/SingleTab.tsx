@@ -1,7 +1,6 @@
 import { constructors } from '@/data/constructors'
 
 interface SingleTabProps {
-	key: string
 	position: string
 	givenName?: string
 	constructorId: string
@@ -14,16 +13,12 @@ const SingleTab: React.FC<SingleTabProps> = ({
 	constructorId,
 	familyName,
 	givenName,
-	key,
 	points,
 	position,
 	constructorName
 }) => {
 	return (
-		<div
-			key={key}
-			className='text-xl bg-blue-200 py-6 flex items-center rounded-xl space-x-10'
-		>
+		<div className='text-xl bg-blue-200 py-6 flex items-center rounded-xl space-x-10'>
 			<span
 				className={`${position === '1' ? 'text-gold' : ''} ${
 					position === '2' ? 'text-silver' : ''

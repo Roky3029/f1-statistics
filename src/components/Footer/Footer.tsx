@@ -1,6 +1,7 @@
 import { APP_VERSION } from '@/data/consts'
 import Image from 'next/image'
-import { BsGithub, BsTwitter } from 'react-icons/bs'
+import { BsGithub } from 'react-icons/bs'
+import { FaXTwitter } from 'react-icons/fa6'
 import SocialLink from './SocialLink'
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
 		},
 		{
 			link: 'https://twitter.com/Dev30Kirky',
-			icon: <BsTwitter size={50} />
+			icon: <FaXTwitter size={50} />
 		}
 	]
 	return (
@@ -30,13 +31,8 @@ const Footer = () => {
 
 			<div className='grid grid-cols-1 lg:grid-cols-3 place-content-center lg:gap-20 gap-10'>
 				<div className='flex items-center justify-center'>
-					<Image
-						src='/logo.png'
-						alt='F1 Statistics logo'
-						height={150}
-						width={150}
-					/>
-					<h1 className='text-2xl font-bold text-f1'>F1 Statistics</h1>
+					<Image src='/logo.png' alt='SBOF1 logo' height={150} width={150} />
+					<h1 className='text-2xl font-bold text-f1'>Some Bits Of F1</h1>
 				</div>
 
 				<div className='flex items-center justify-center gap-10'>

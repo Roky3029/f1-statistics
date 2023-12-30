@@ -11,7 +11,7 @@ const HeaderLayout: React.FC<HeaderLayoutProps> = ({
 		<header
 			className={`mb-10 ${
 				isPcHeader ? 'lg:flex hidden' : 'lg:hidden flex'
-			} w-full items-center justify-between bg-slate-100 pl-36 pr-32`}
+			} w-full items-center justify-between bg-white pl-36 pr-32`}
 		>
 			{children}
 		</header>

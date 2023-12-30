@@ -13,14 +13,9 @@ const HeaderDesktop = () => {
 	return (
 		<>
 			<Link href='/' className='flex items-center justify-center'>
-				<Image
-					src='/logo.png'
-					alt='F1 Statistics logo'
-					height={150}
-					width={150}
-				/>
+				<Image src='/logo.png' alt='SBOF1 logo' height={150} width={150} />
 				<h1 className={`${font.className} text-2xl font-bold text-f1`}>
-					F1 Statistics
+					Some Bits Of F1
 				</h1>
 			</Link>
 

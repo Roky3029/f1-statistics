@@ -1,5 +1,12 @@
 # PATCH NOTES
 
+### Version 2.0.0 (Early access version) ( 30/12/2023 )
+
+- REBRANDING: Welcome to Some Bits Of F1, the new name for, not only the web but also the community we're creating.
+- FEATURE: Blog section finished, now it will be home for the SBOF1 newsletter.
+- UPDATE: Updated the circuit information as some circuits will have new info facing 2024.
+- STABILITY: Removed some of the features such as the countdowns for the next race due to untrustworthiness with the API in the season change.
+
 ### Version 1.2.0 ( 27/11/2023 )
 
 - FEATURE: Replaced the seasons results with a Blog section which is still in development
