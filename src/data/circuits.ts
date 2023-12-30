@@ -1,4 +1,4 @@
-const data = [
+const circuitData = [
 	{
 		id: 'United_States',
 		firstRace: '2012',
@@ -217,4 +217,4 @@ const data = [
 	}
 ]
 
-export { data }
+export { circuitData }
