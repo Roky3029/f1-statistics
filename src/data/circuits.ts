@@ -216,3 +216,5 @@ const data = [
 		authorOfFastestLap: 'Lewis Hamilton (2020)'
 	}
 ]
+
+export { data }
