@@ -1,5 +1,9 @@
 # PATCH NOTES
 
+### Version 2.0.0 ( 2/1/2024 )
+
+- FEATURE: Added the first ever post of SBOF1.
+
 ### Version 2.0.0 (Early access version) ( 30/12/2023 )
 
 - REBRANDING: Welcome to Some Bits Of F1, the new name for, not only the web but also the community we're creating.
