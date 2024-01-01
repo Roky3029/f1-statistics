@@ -17,7 +17,9 @@ const PostPage = (props: any) => {
 
 	return (
 		<div className='flex items-center justify-center flex-col'>
-			<Title text={post.data.title} small uppercase />
+			<div className='px-3'>
+				<Title text={post.data.title} small uppercase />
+			</div>
 
 			<Data
 				author={post.data.author}
@@ -25,7 +27,7 @@ const PostPage = (props: any) => {
 				date={post.data.date}
 			/>
 
-			<article className='prose lg:prose-xl'>
+			<article className='prose lg:prose-xl px-5'>
 				<Markdown>{post.content}</Markdown>
 			</article>
 		</div>

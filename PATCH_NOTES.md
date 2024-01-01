@@ -1,5 +1,9 @@
 # PATCH NOTES
 
+### Patch 2.0.1 ( 1/1/2024 )
+
+- BUG: Fixed some bugs with the layout in mobile mode
+
 ### Version 2.0.0 ( 1/1/2024 )
 
 - FEATURE: Added the first ever post of SBOF1.

@@ -17,7 +17,7 @@ const Data: React.FC<DataProps> = ({ author, introduction, date }) => {
 	}, [])
 
 	return (
-		<div className='w-1/2 bg-white px-3 py-4 rounded-lg shadow-md flex items-center justify-between gap-10'>
+		<div className='w-1/2 bg-white px-3 py-4 rounded-lg shadow-md flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-10'>
 			<div className='flex items-center justify-center gap-5'>
 				<Avatar author={author} />
 				<p>{author === 'M' ? 'Miguel' : 'David'}</p>
