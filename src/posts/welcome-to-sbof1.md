@@ -1,7 +1,7 @@
 ---
 title: 'Welcome to Some Bits Of F1'
 subtitle: 'Welcome everyone interested in Formula 1 to a growing community who loves this sport.'
-date: '2-1-2024'
+date: '1-1-2024'
 author: 'M'
 introduction: true
 ---

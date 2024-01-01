@@ -1,6 +1,6 @@
 # PATCH NOTES
 
-### Version 2.0.0 ( 2/1/2024 )
+### Version 2.0.0 ( 1/1/2024 )
 
 - FEATURE: Added the first ever post of SBOF1.
 
