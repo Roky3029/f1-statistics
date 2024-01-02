@@ -1,5 +1,9 @@
 # PATCH NOTES
 
+### Patch 2.0.2 ( 2/1/2024 )
+
+- BUG: Solved a bug that broke the whole circuits section
+
 ### Patch 2.0.1 ( 1/1/2024 )
 
 - BUG: Fixed some bugs with the layout in mobile mode

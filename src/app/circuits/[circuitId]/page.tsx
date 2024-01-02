@@ -13,6 +13,8 @@ const CircuitIdPage = async ({ params }: { params: { circuitId: string } }) => {
 
 	if (!data.circuitName || circuitData.length > 1 || !circuitData) notFound()
 
+	console.log(circuitData)
+
 	const [
 		{
 			authorOfFastestLap,
