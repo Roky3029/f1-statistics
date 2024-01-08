@@ -9,7 +9,7 @@ First week of the year, and yet we've had some interesting declarations and news
 
 ### Stake? Sauber? Kick?
 
-It's been quite the confusion in social network since Sauber announced the new name for its F1 team. Firstly, they announced they'd be called "Kick F1 Team Sauber". This name, as it generated a lot of controversy all along the network, was dropped, and they announced the 1st of January 2024 they'd launch their brand new and definitive name for the team.
+It's been quite the confusion in the Internet since Sauber announced the new name for its F1 team. Firstly, they announced they'd be called "Kick F1 Team Sauber". This name, as it generated a lot of controversy all along the network, was dropped, and they announced the 1st of January 2024 they'd launch their brand new and definitive name for the team.
 
 Stake F1 Team. This was the name they announced on New Year. While we were having lunch or in a family meeting, we suddenly found out what the name of the team would be, and it was a matter of time for people to start creating memes about it.
 
@@ -20,7 +20,7 @@ As far as we are concerned, this will affect the team in these countries. In all
 
 It has been leaked that the new Concorde Pact, to explain it simple, the regulation that dictates all the rules in F1, has stated to be holding races and Grand Prixes on weekdays in order to reach a total of 30+ Grand Prixes per season.
 
-Liverty Media, the company with the leadership over F1, has expressed its willingness to celebrate 3 GPs in a single week, and has asked the teams what do they think about the proposal.
+Liberty Media, the company with the leadership over F1, has expressed its willingness to celebrate 3 GPs in a single week, and has asked the teams what do they think about the proposal.
 They say: "In a possible scenario, Sunday would be the Canadian GP, Wednesday the Austin GP, and Saturday the Mexican GP."
 
 From the spectator's point of view this would mean that we'd have a lot more F1 to enjoy, but keep in mind that people have school, or work on weekday. But more important than the spectator's POV, it's the driver's one. With this system, they would end up exhausted from the overload of work and stress they'd have to face.
