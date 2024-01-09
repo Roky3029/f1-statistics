@@ -37,7 +37,7 @@ const Blog = () => {
 
 			<Posts postMetadata={postMetadata} />
 
-			<div className='flex items-center justify-center gap-10 pt-10'>
+			<div className='grid place-content-center sm:grid-cols-5 grid-cols-3 gap-10 pt-10'>
 				{socialLinks.map(link => (
 					<SocialLink icon={link.icon} link={link.link} key={link.link} />
 				))}

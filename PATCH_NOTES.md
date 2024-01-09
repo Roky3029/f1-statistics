@@ -1,5 +1,10 @@
 # PATCH NOTES
 
+### Patch 2.0.3 ( 9/1/2024)
+
+- BUG: Solved a problem with a wrong layout in the Fastest Lap and Pit Stop
+- BUG: Solved a problem with a wrong layout with the social icons in the Blog section
+
 ### Patch 2.0.2 ( 2/1/2024 )
 
 - BUG: Solved a bug that broke the whole circuits section
