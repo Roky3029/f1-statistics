@@ -4,3 +4,5 @@ export const APP_VERSION = '2.0.3'
 export const SECONDS_ISR = 10
 // The links the header will show
 export const LINK_LIST = ['Home', 'Blog', 'Drivers', 'Circuits']
+
+export const SERVER_LINK = 'http://127.0.0.1:5000'
