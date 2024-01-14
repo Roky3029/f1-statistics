@@ -22,10 +22,6 @@ const Blog = () => {
 			icon: <FaInstagram size={40} />
 		},
 		{
-			link: 'https://whatsapp.com/channel/0029VaFz7abAojZ28xazgR3V',
-			icon: <FaWhatsapp size={40} />
-		},
-		{
 			link: 'https://twitter.com/SomeBitsOfF1',
 			icon: <FaXTwitter size={40} />
 		}

@@ -31,9 +31,9 @@ export const getPostMetadata = (): PostMetadata[] => {
 
 	const sortedData = posts.sort((a, b) => {
 		const dateA: any = new Date(
-			a.date.split('-').reverse().join('-') // Reversing the date string for proper Date object creation
+			a.date.split('/').reverse().join('/') // Reversing the date string for proper Date object creation
 		)
-		const dateB: any = new Date(b.date.split('-').reverse().join('-'))
+		const dateB: any = new Date(b.date.split('/').reverse().join('/'))
 
 		return dateB - dateA // Sort in descending order (newest to oldest)
 	})

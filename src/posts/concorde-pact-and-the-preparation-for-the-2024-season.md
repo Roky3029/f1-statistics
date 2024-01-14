@@ -1,7 +1,7 @@
 ---
 title: 'The Concorde Pact, Thoughts on the future of F1 and the confirmed presentation dates.'
 subtitle: "In this week's post we'll talk about the new agreements the Concorde Pact may have, apart from the future of F1 and some changes the teams want in their drivers."
-date: '7-1-2024'
+date: '7/1/2024'
 author: 'M'
 ---
 
