@@ -1,12 +1,15 @@
-import { type Result } from '@/types/raceResultsTypes'
+import { RaceResult } from '@/types/raceResult'
 import TableElement from './TableElement'
 
 interface ResultsTableProps {
-	raceResults: Result[]
+	race: RaceResult[]
 }
 
-const ResultsTable: React.FC<ResultsTableProps> = ({ raceResults }) => {
-	const notPodiumResults = raceResults.filter(result => +result.position > 3)
+const ResultsTable: React.FC<ResultsTableProps> = ({ race }) => {
+	console.log(race)
+	const notPodiumResults = race
+		.filter(result => result.Position > 3)
+		.sort((a, b) => a.Position - b.Position)
 	const gridClasses = 'grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6'
 
 	return (
@@ -21,18 +24,17 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ raceResults }) => {
 				<p>Points</p>
 				<p>Race status</p>
 			</div>
-			{notPodiumResults.map(pilot => (
+			{notPodiumResults.map(driver => (
 				<TableElement
 					gridClasses={gridClasses}
-					constructorId={pilot.Constructor.constructorId}
-					constructorName={pilot.Constructor.name}
-					familyName={pilot.Driver.familyName}
-					givenName={pilot.Driver.givenName}
-					points={pilot.points}
-					position={pilot.positionText}
-					status={pilot.status}
-					time={pilot.Time?.time}
-					key={pilot.position}
+					constructorId={driver.TeamId}
+					constructorName={driver.TeamName}
+					fullName={driver.FullName}
+					points={driver.Points}
+					position={driver.Position}
+					status={driver.Status}
+					time={driver.Time}
+					key={driver.Abbreviation}
 				/>
 			))}
 		</>

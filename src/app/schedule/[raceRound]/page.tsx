@@ -1,78 +1,85 @@
-import { getSchedule } from '@/data/getSchedule'
-import { notFound } from 'next/navigation'
-import Image from 'next/image'
-import dynamic from 'next/dynamic'
-import { formatDate, formatTime } from '@/helpers/formatData'
-import { getCountryFlag } from '@/helpers/getCountryFlag'
-import { getRaceResults } from '@/data/getRaceResults'
-import { hasDatePassed } from '@/helpers/hasDatePassed'
 import InformationParagraph from '@/components/InformationParagraph'
-import PodiumStanding from '../../../components/PodiumStanding'
-import ResultsTable from './components/ResultsTable'
-import FastestLap from './components/FastesetLap'
+import PodiumStanding from '@/components/PodiumStanding'
 import Title from '@/components/Title'
-import { getFastestPitStop } from '@/data/getFastestPitStop'
-import FastestPitStop from './components/FastestPitStop'
+import { getCircuits } from '@/data/newData/getCircuits'
+import { getEvent } from '@/data/newData/getEvent'
+import { getRaceInfo } from '@/data/newData/getRaceInfo'
+import { getCountryFlag } from '@/helpers/getCountryFlag'
+import dayjs from 'dayjs'
+import Image from 'next/image'
+import ResultsTable from './components/ResultsTable'
+import dynamic from 'next/dynamic'
 
 const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 	const Countdown = dynamic(() => import('@/components/Countdown'), {
 		ssr: false
 	})
 
-	const { season, races } = await getSchedule(params.raceRound)
+	const race = await getRaceInfo(params.raceRound)
+	const event = await getEvent(params.raceRound)
+	const circuits = await getCircuits()
 
-	if (races.length === 0) notFound()
-
-	const raceResults = await getRaceResults(params.raceRound)
-	const podium = [raceResults[1], raceResults[0], raceResults[2]]
-
-	const [race] = races
-
-	const dateOfRace = new Date(
-		formatDate(race.date.toString())[1] + ' ' + formatTime(race.time)
+	const [circuit] = circuits.filter(
+		circ => circ.Location.country === event.Country
 	)
 
-	const hasDatePassedNow = hasDatePassed(dateOfRace)
+	const hasDatePassedNow =
+		new Date(event.Session5DateUtc).getTime() < new Date().getTime()
 
-	const fastestPitStop = await getFastestPitStop(params.raceRound)
+	const podium = race.filter(result => {
+		return result.Position <= 3
+	})
+
+	const sortedPodium = podium.sort((a, b) => {
+		if (a.Position === 2) return -1
+		if (b.Position === 1) return 1
+		return 0
+	})
 
 	return (
 		<div className='pb-10 w-full flex items-center justify-center flex-col'>
-			<Title text={race.raceName} uppercase />
+			<Title text={event.EventName} uppercase />
 
 			<div className='bg-slate-300 rounded-lg shadow-md w-[90%] space-y-10 flex items-center p-5 justify-center flex-col'>
 				<p className='text-xl font-bold text-gray-900'>
-					Round {params.raceRound} | Season {season}
+					Round {params.raceRound} | Season{' '}
+					{dayjs(event.EventDate).format('YYYY')}
 				</p>
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
 					<div className='grid grid-cols-1 place-content-center text-xl gap-10'>
 						<p className='text-center text-2xl font-semibold'>
-							{race.raceName}
+							{event.EventName}
 						</p>
 
 						<InformationParagraph
-							data={`${race.Circuit.Location.country} ${getCountryFlag(
-								race.Circuit.Location.country
-							)}`}
+							data={`${event.Country} ${getCountryFlag(event.Country)}`}
 							title='Country'
 						/>
+						<InformationParagraph data={event.Location} title='City' />
 						<InformationParagraph
-							data={race.Circuit.Location.locality}
-							title='City'
-						/>
-						<InformationParagraph
-							data={race.Circuit.circuitName}
+							data={circuit.circuitName}
 							title='Circuit name'
 						/>
 						<InformationParagraph
 							data={hasDatePassedNow ? 'Finished 🏁' : 'Yet to be celebrated'}
 							title='Race status'
 						/>
+						{/* <p className='text-center text-xl'>
+							{`${dayjs(firstPractise).format('DD/MM/YY')} - ${dayjs(
+								raceDate
+							).format('DD/MM/YY')}`}
+						</p> */}
+						<InformationParagraph
+							data={`${dayjs(event.Session1DateUtc).format(
+								'DD/MM/YY'
+							)} - ${dayjs(event.Session5DateUtc).format('DD/MM/YY')}`}
+							title='Days of the event'
+						/>
 					</div>
 
 					<Image
-						src={`/circuits/${race.Circuit.circuitId}.png`}
-						alt={`Image of the ${race.Circuit.Location.country}'s circuit`}
+						src={`/circuits/${circuit.circuitId}.png`}
+						alt={`${circuit.circuitName}`}
 						width={771}
 						height={434}
 					/>
@@ -80,39 +87,30 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 				{!hasDatePassedNow ? (
 					<>
 						<Title text='Time until the race' small />
-						<Countdown
-							expiryTimestamp={
-								new Date(
-									formatDate(race.date.toString())[1] +
-										' ' +
-										formatTime(race.time)
-								)
-							}
-						/>
+						<Countdown expiryTimestamp={new Date(event.Session5DateUtc)} />
 					</>
 				) : (
 					<>
 						<Title text='Race results' small />
 
 						<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
-							{podium.map(pilot => (
+							{sortedPodium.map(driver => (
 								<PodiumStanding
-									driverCode={pilot.Driver.code}
-									familyName={pilot.Driver.familyName}
-									givenName={pilot.Driver.givenName}
-									points={pilot.points}
-									position={pilot.position}
-									time={pilot.Time?.time}
-									key={pilot.Driver.code}
+									driverCode={driver.Abbreviation}
+									fullName={driver.FullName}
+									points={driver.Points}
+									position={driver.Position}
+									time={driver.Time}
+									key={driver.Abbreviation}
 								/>
 							))}
 						</div>
 
 						<div className='flex items-center justify-center flex-col w-full pt-40'>
-							<ResultsTable raceResults={raceResults} />
+							<ResultsTable race={race} />
 						</div>
 
-						<div className='grid gap-10 grid-cols-1 md:grid-cols-2 w-full'>
+						{/* <div className='grid gap-10 grid-cols-1 md:grid-cols-2 w-full'>
 							<FastestLap raceResults={raceResults} />
 
 							<FastestPitStop
@@ -122,7 +120,7 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 								familyName={fastestPitStop.driverFamilyName}
 								lap={fastestPitStop.lap}
 							/>
-						</div>
+						</div> */}
 					</>
 				)}
 			</div>
