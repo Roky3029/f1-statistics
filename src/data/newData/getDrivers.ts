@@ -1,4 +1,4 @@
-import { DriverStanding } from '@/types/driverStandings'
+import { DriversStanding, DriverStanding } from '@/types/driverStandings'
 import { SECONDS_ISR, SERVER_LINK } from './../consts'
 
 export const getDriverStandings = (setData: any, setLoading: any) => {
@@ -9,4 +9,12 @@ export const getDriverStandings = (setData: any, setLoading: any) => {
 			setData(data[0] as DriverStanding)
 			setLoading(false)
 		})
+}
+
+export const getDriverStandingsSSR = async () => {
+	const url = `${SERVER_LINK}/standings/drivers`
+	const data = await fetch(url)
+	const fetchedData = (await data.json()) as DriversStanding[]
+
+	return fetchedData
 }

@@ -1,4 +1,4 @@
-import { getDriverStandings } from '@/data/getStandings'
+import { getDriverStandingsSSR } from '@/data/newData/getDrivers'
 import { constructors as constructorList } from '@/data/constructors'
 import DriverItem from './DriverItem'
 
@@ -11,7 +11,7 @@ const ConstructorList: React.FC<ConstructorListProps> = async ({
 	constructorId,
 	name
 }) => {
-	const { standingList } = await getDriverStandings()
+	const [drivers] = await getDriverStandingsSSR()
 
 	return (
 		<div className='bg-blue-200 rounded-lg shadow-lg p-5 flex items-center justify-center flex-col space-y-5'>
@@ -26,7 +26,7 @@ const ConstructorList: React.FC<ConstructorListProps> = async ({
 						: 'grid-cols-1 md:grid-cols-2'
 				}`}
 			>
-				{standingList.map(driver => (
+				{drivers.DriverStandings.map(driver => (
 					<DriverItem
 						constructorNameDriver={driver.Constructors[0].name}
 						constructorName={name}
