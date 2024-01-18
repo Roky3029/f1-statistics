@@ -1,10 +1,7 @@
 import { constructors } from '@/data/constructors'
 import { notFound } from 'next/navigation'
-import Title from '@/components/Title'
-import TableStats from './components/TableStats'
-import Data from './components/Data'
 import { getDriverStandingsSSR } from '@/data/newData/getDrivers'
-import dayjs from 'dayjs'
+import DriverData from './components/DriverData'
 
 const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 	const [driverStandings] = await getDriverStandingsSSR()
@@ -14,8 +11,6 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 	)
 
 	if (!selectedDriver) notFound()
-
-	console.log(selectedDriver)
 
 	return (
 		<section className='w-full flex items-center justify-center flex-col'>
@@ -39,41 +34,7 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 					/>
 				</div>
 
-				<div className='flex items-center justify-center flex-col gap-5'>
-					<div className='flex items-center justify-center flex-col'>
-						<Title text='Championship stats' small />
-						<TableStats>
-							<Data text='Position' data={selectedDriver.position} />
-							<Data text='Points' data={selectedDriver.points} />
-							<Data text='Winned races so far' data={selectedDriver.wins} />
-							<Data
-								text='Racing for'
-								data={selectedDriver.Constructors[0].name}
-							/>
-						</TableStats>
-					</div>
-
-					<div className='flex items-center justify-center flex-col'>
-						<Title text='Driver stats' small />
-						<TableStats>
-							<Data text='Code' data={selectedDriver.Driver.code} />
-							<Data
-								text='Date of birth'
-								data={dayjs(selectedDriver.Driver.dateOfBirth).format(
-									'DD/MM/YYYY'
-								)}
-							/>
-							<Data
-								text='Nationality'
-								data={selectedDriver.Driver.nationality}
-							/>
-							<Data
-								text='Permanent number'
-								data={selectedDriver.Driver.permanentNumber}
-							/>
-						</TableStats>
-					</div>
-				</div>
+				<DriverData selectedDriver={selectedDriver} />
 			</div>
 		</section>
 	)

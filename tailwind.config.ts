@@ -39,6 +39,16 @@ const config: Config = {
 			},
 			borderColor: {
 				f1: '#ff1801'
+			},
+			keyframes: {
+				opac: {
+					'0%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+					'100%': { display: 'none', opacity: '0' }
+				}
+			},
+			animation: {
+				opac: 'opac .5s'
 			}
 		}
 	},
