@@ -1,4 +1,4 @@
-import { CircuitInformation } from '@/types/circuit'
+import { CircuitInformation } from '@/types/circuits'
 import { SECONDS_ISR } from './consts'
 
 export const getCircuits = async () => {
