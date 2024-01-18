@@ -4,7 +4,7 @@ import { circuitData as getData } from '@/data/circuits'
 import Image from 'next/image'
 import InformationParagraph from '@/components/InformationParagraph'
 import Title from '@/components/Title'
-import { getCircuits } from '@/data/newData/getCircuits'
+import { getCircuits } from '@/data/getCircuits'
 
 const CircuitIdPage = async ({ params }: { params: { circuitId: string } }) => {
 	const circuits = await getCircuits()

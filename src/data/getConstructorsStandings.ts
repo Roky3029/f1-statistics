@@ -2,7 +2,7 @@ import {
 	ConstructorsStandings,
 	ConstructorStanding
 } from '@/types/constructors'
-import { SECONDS_ISR, SERVER_LINK } from '../consts'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
 
 export const getConstructorsStandings = (setData: any, setLoading: any) => {
 	const url = `${SERVER_LINK}/standings/constructors`

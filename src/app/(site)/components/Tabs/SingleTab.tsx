@@ -34,8 +34,8 @@ const SingleTab: React.FC<SingleTabProps> = ({
 						<>
 							<span>{givenName}</span>
 							<span
-								className={`text-2xl md:text-3xl ${
-									(constructors as any)[constructorId]
+								className={`text-2xl md:text-3xl  ${
+									constructors[constructorId as keyof typeof constructors]
 								}`}
 							>
 								{familyName}

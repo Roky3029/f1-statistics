@@ -1,4 +1,4 @@
-import { getCircuits } from '@/data/newData/getCircuits'
+import { getCircuits } from '@/data/getCircuits'
 import CircuitItem from './components/CircuitItem'
 import Title from '@/components/Title'
 

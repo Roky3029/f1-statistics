@@ -1,4 +1,4 @@
-import { SECONDS_ISR, SERVER_LINK } from './../consts'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
 import { NextEvent } from '@/types/next_event'
 
 export const getEvent = async (round: string) => {

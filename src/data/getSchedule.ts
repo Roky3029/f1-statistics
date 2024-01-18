@@ -1,24 +1,26 @@
-import { Schedule } from '@/types/scheduleTypes'
-import { notFound } from 'next/navigation'
-import { SECONDS_ISR } from './consts'
+import { Schedule } from '@/types/schedule'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
+import { createObject } from '@/helpers/createObject'
 
-export const getSchedule = async (round?: string) => {
-	let url
+export const getSchedule = async () => {
+	const url = `${SERVER_LINK}/schedule`
+	const schedule = await fetch(url, { next: { revalidate: SECONDS_ISR } })
+	const calendar = (await schedule.json()) as Schedule
 
-	if (round) {
-		url = `https://ergast.com/api/f1/current/${round}.json`
-	} else {
-		url = 'https://ergast.com/api/f1/current.json'
-	}
+	const propertyKeys = Object.keys(calendar)
+	const roundKeys = Object.keys(calendar.RoundNumber)
 
-	const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
+	const scheduleData = roundKeys.map(round => {
+		const gpValues = propertyKeys.map(prop => {
+			const values = Object.values(calendar[prop as keyof typeof calendar])
 
-	if (!data.ok) notFound()
+			return values[round as keyof typeof values]
+		})
 
-	const schedule = (await data.json()) as Schedule
+		const result = createObject(propertyKeys, gpValues)
 
-	return {
-		season: schedule.MRData.RaceTable.season,
-		races: schedule.MRData.RaceTable.Races
-	}
+		return result
+	})
+
+	return scheduleData
 }

@@ -1,6 +1,6 @@
 import { constructors } from '@/data/constructors'
 import { notFound } from 'next/navigation'
-import { getDriverStandingsSSR } from '@/data/newData/getDrivers'
+import { getDriverStandingsSSR } from '@/data/getDrivers'
 import DriverData from './components/DriverData'
 
 const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
@@ -20,8 +20,9 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 						<p>{selectedDriver.Driver.givenName}</p>
 						<p
 							className={`${
-								(constructors as any)[
-									selectedDriver.Constructors[0].constructorId
+								constructors[
+									selectedDriver.Constructors[0]
+										.constructorId as keyof typeof constructors
 								]
 							} text-4xl font-bold`}
 						>

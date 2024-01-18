@@ -1,42 +1,17 @@
-import { SECONDS_ISR } from './consts'
+import { NextEvent } from '@/types/next_event'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
+import { getCircuits } from './getCircuits'
 
-export const getNextRace = async (getAllData?: boolean) => {
-	// Gets, from the current season, the next race is going to be celebrated
-	const url = 'https://ergast.com/api/f1/current/next.json'
+export const getNextRace = async () => {
+	const url = `${SERVER_LINK}/next_event`
 	const nextRace = await fetch(url, { next: { revalidate: SECONDS_ISR } })
-	const nextRaceData = await nextRace.json()
+	const nextRaceData = (await nextRace.json()) as NextEvent
 
-	if (getAllData) return nextRaceData.MRData.RaceTable
+	const circuits = await getCircuits()
 
-	return {
-		ronda: nextRaceData.MRData.RaceTable.round, // The race's position in the calendar of that year
-		race: nextRaceData.MRData.RaceTable.Races[0]?.raceName ?? null, // The title of the race (Eg: Dutch Grand Prix)
-		fecha: () => {
-			// Returns the date of the race itself
-			const fecha = nextRaceData.MRData.RaceTable.Races[0]?.date ?? null
-			const [year, month, day] = fecha.split('-')
-			// fecha()[0] return the date formatted in the normal mode (DD/MM/YYYY) and fecha()[1] returns the date in the way the new Date() can parse it
-			return [day + '/' + month + '/' + year, month + '/' + day + '/' + year]
-		},
-		horaCarrera: () => {
-			// Returns the hour of the race in the Europe/Madrid timezone based on the UTC hour
-			const time = nextRaceData.MRData.RaceTable.Races[0]?.time ?? null
+	const [circuit] = circuits.filter(
+		cir => cir.Location.country === nextRaceData.Country
+	)
 
-			if (!time) return null
-			const [horas, minutos, segundos] = time.slice(0, -1).split(':')
-
-			const horaLocal = new Date()
-			horaLocal.setUTCHours(horas)
-			horaLocal.setUTCMinutes(minutos)
-			horaLocal.setUTCSeconds(segundos)
-
-			return horaLocal.toLocaleTimeString('es-ES', {
-				timeZone: 'Europe/Madrid'
-			})
-		},
-		circuit:
-			nextRaceData.MRData.RaceTable.Races[0]?.Circuit.circuitName ?? null, // Returns the circuit name
-		country:
-			nextRaceData.MRData.RaceTable.Races[0]?.Circuit.Location.country ?? null // The country where the GP takes place
-	}
+	return { nextRaceData, circuit }
 }

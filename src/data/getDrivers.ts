@@ -1,5 +1,5 @@
 import { DriversStanding, DriverStanding } from '@/types/driverStandings'
-import { SECONDS_ISR, SERVER_LINK } from './../consts'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
 
 export const getDriverStandings = (setData: any, setLoading: any) => {
 	const url = `${SERVER_LINK}/standings/drivers`

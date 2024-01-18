@@ -1,6 +1,6 @@
 import ConstructorList from './components/ConstructorList'
 import Title from '@/components/Title'
-import { getConstructorsStandingsSSR } from '@/data/newData/getConstructorsStandings'
+import { getConstructorsStandingsSSR } from '@/data/getConstructorsStandings'
 
 const Drivers = async () => {
 	const [constructorsData] = await getConstructorsStandingsSSR()

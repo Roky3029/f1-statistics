@@ -1,10 +1,9 @@
-import { getNextRace } from '@/data/newData/getNextRace'
+import { getNextRace } from '@/data/getNextRace'
 import { getCountryFlag } from '@/helpers/getCountryFlag'
 import Countdown from '@/components/Countdown'
 import Link from 'next/link'
 import { AiOutlineLink } from 'react-icons/ai'
 import Title from '@/components/Title'
-import { getDriverStandings } from '@/data/newData/getDrivers'
 
 const NextRace = async () => {
 	const { nextRaceData: data, circuit } = await getNextRace()

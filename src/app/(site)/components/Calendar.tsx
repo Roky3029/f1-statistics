@@ -1,7 +1,7 @@
-import { getSchedule } from '@/data/newData/getSchedule'
+import { getSchedule } from '@/data/getSchedule'
 import CalendarRace from './CalendarRace'
 import Title from '@/components/Title'
-import { getCircuits } from '@/data/newData/getCircuits'
+import { getCircuits } from '@/data/getCircuits'
 
 const Calendar = async () => {
 	const calendar = await getSchedule()

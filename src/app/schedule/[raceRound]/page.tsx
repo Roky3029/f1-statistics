@@ -1,9 +1,9 @@
 import InformationParagraph from '@/components/InformationParagraph'
 import PodiumStanding from '@/components/PodiumStanding'
 import Title from '@/components/Title'
-import { getCircuits } from '@/data/newData/getCircuits'
-import { getEvent } from '@/data/newData/getEvent'
-import { getRaceInfo } from '@/data/newData/getRaceInfo'
+import { getCircuits } from '@/data/getCircuits'
+import { getEvent } from '@/data/getEvent'
+import { getRaceInfo } from '@/data/getRaceInfo'
 import { getCountryFlag } from '@/helpers/getCountryFlag'
 import dayjs from 'dayjs'
 import Image from 'next/image'
@@ -109,18 +109,6 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 						<div className='flex items-center justify-center flex-col w-full pt-40'>
 							<ResultsTable race={race} />
 						</div>
-
-						{/* <div className='grid gap-10 grid-cols-1 md:grid-cols-2 w-full'>
-							<FastestLap raceResults={raceResults} />
-
-							<FastestPitStop
-								constructorId={fastestPitStop.constructorId}
-								driverName={fastestPitStop.driverName}
-								duration={fastestPitStop.duration}
-								familyName={fastestPitStop.driverFamilyName}
-								lap={fastestPitStop.lap}
-							/>
-						</div> */}
 					</>
 				)}
 			</div>

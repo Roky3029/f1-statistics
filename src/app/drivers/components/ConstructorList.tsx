@@ -1,4 +1,4 @@
-import { getDriverStandingsSSR } from '@/data/newData/getDrivers'
+import { getDriverStandingsSSR } from '@/data/getDrivers'
 import { constructors as constructorList } from '@/data/constructors'
 import DriverItem from './DriverItem'
 
@@ -15,7 +15,11 @@ const ConstructorList: React.FC<ConstructorListProps> = async ({
 
 	return (
 		<div className='bg-blue-200 rounded-lg shadow-lg p-5 flex items-center justify-center flex-col space-y-5'>
-			<p className={`text-2xl ${(constructorList as any)[constructorId]}`}>
+			<p
+				className={`text-2xl ${
+					constructorList[constructorId as keyof typeof constructorList]
+				}`}
+			>
 				{name}
 			</p>
 

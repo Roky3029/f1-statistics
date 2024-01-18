@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import Card from '@/components/Card'
-import { getNextRace } from '@/data/newData/getNextRace'
+import { getNextRace } from '@/data/getNextRace'
 import { getCountryFlag } from '@/helpers/getCountryFlag'
 import Image from 'next/image'
 import dayjs from 'dayjs'

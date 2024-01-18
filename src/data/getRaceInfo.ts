@@ -1,4 +1,4 @@
-import { SECONDS_ISR, SERVER_LINK } from '../consts'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
 import { RaceResult, RaceResultRaw } from '@/types/raceResult'
 
 function transformObject(originalObject: RaceResultRaw) {

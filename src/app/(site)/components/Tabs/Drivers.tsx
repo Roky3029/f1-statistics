@@ -1,4 +1,4 @@
-import { getDriverStandings } from '@/data/newData/getDrivers'
+import { getDriverStandings } from '@/data/getDrivers'
 import {
 	DriverStandingElement,
 	type DriverStanding
