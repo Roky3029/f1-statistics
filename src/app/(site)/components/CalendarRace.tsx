@@ -18,7 +18,7 @@ const CalendarRace: React.FC<CalendarRaceProps> = ({
 				hasGPPassed ? 'bg-blue-100' : 'bg-blue-200'
 			} space-y-5 p-5 rounded-lg shadow-md`}
 		>
-			<p className='text-3xl absolute'>{getCountryFlag(country)}</p>
+			<p className='text-3xl lg:absolute'>{getCountryFlag(country)}</p>
 			<h4 className='text-xl text-center'>
 				Round {round} - {raceName}
 			</h4>

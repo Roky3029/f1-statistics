@@ -1,5 +1,9 @@
 # PATCH NOTES
 
+### Version 3.0.0 ( 23/1/2024 )
+
+- FEATURE: Removed the old Ergast API as it was going to be deprecated and replaced with FastF1 API. Keep in mind that this new API is still in a experimental and a very early stage of development and consequently, there can be problems with it.
+
 ### Patch 2.0.3 ( 9/1/2024)
 
 - BUG: Solved a problem with a wrong layout in the Fastest Lap and Pit Stop
