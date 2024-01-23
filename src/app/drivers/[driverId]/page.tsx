@@ -14,7 +14,7 @@ const DriverInfo = async ({ params }: { params: { driverId: string } }) => {
 
 	return (
 		<section className='w-full flex items-center justify-center flex-col'>
-			<div className='bg-slate-300 rounded-lg shadow-md w-[70%] space-y-10 p-5 grid place-content-center grid-cols-2'>
+			<div className='bg-slate-300 rounded-lg shadow-md w-[70%] space-y-10 p-5 grid place-content-center lg:grid-cols-2'>
 				<div className='flex items-center justify-center flex-col lg:flex-row gap-10 '>
 					<div className='text-3xl'>
 						<p>{selectedDriver.Driver.givenName}</p>

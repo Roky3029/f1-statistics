@@ -1,5 +1,9 @@
 # PATCH NOTES
 
+### Patch 3.0.1 (23/1/2024)
+
+- BUG: Modified the driver info so it maintains the correct layout when showed on a mobile device.
+
 ### Version 3.0.0 ( 23/1/2024 )
 
 - FEATURE: Removed the old Ergast API as it was going to be deprecated and replaced with FastF1 API. Keep in mind that this new API is still in a experimental and a very early stage of development and consequently, there can be problems with it.
