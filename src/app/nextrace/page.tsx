@@ -22,6 +22,16 @@ const NextRace = async () => {
 		ssr: false
 	})
 
+	const isDateFetched =
+		new Date(data.Session1DateUtc).getHours ===
+			new Date(data.Session5DateUtc).getHours &&
+		new Date(data.Session1DateUtc).getHours ===
+			new Date(data.Session2DateUtc).getHours &&
+		new Date(data.Session1DateUtc).getHours ===
+			new Date(data.Session3DateUtc).getHours &&
+		new Date(data.Session1DateUtc).getHours ===
+			new Date(data.Session4DateUtc).getHours
+
 	return (
 		<div className='pb-10 w-full flex items-center justify-center flex-col'>
 			{/* dark:text-white */}
@@ -95,6 +105,12 @@ const NextRace = async () => {
 						utcDate={data.Session5DateUtc}
 					/>
 				</div>
+				{isDateFetched && (
+					<p className='opacity-70'>
+						If the times above are the same it's because the API hasn't changed
+						them. As soon as the times are fully confirmed they will appear here
+					</p>
+				)}
 			</div>
 		</div>
 	)
