@@ -1,23 +1,39 @@
-export type Constructors = {
-	MRData: MRData
+export interface ConstructorsStandings {
+	season: number
+	round: number
+	ConstructorStandings: ConstructorStanding[]
 }
 
-export type MRData = {
-	xmlns: string
-	series: string
+export interface ConstructorStanding {
+	position: string
+	positionText: string
+	points: string
+	wins: string
+	Constructor: Constructor
+}
+
+export interface Constructor {
+	constructorId: string
 	url: string
-	limit: string
-	offset: string
-	total: string
-	ConstructorTable: ConstructorTable
+	name: string
+	nationality: string
 }
 
-export type ConstructorTable = {
-	season: string
-	Constructors: Constructor[]
+export interface ConstructorStanding {
+	season: number
+	round: number
+	ConstructorStandings: ConstructorStandingElement[]
 }
 
-export type Constructor = {
+export interface ConstructorStandingElement {
+	position: string
+	positionText: string
+	points: string
+	wins: string
+	Constructor: Constructor
+}
+
+export interface Constructor {
 	constructorId: string
 	url: string
 	name: string

@@ -1,13 +1,10 @@
-import { CircuitInformation } from '@/types/circuit'
-import { SECONDS_ISR } from './consts'
+import { Circuits } from '@/types/circuits'
+import { SECONDS_ISR, SERVER_LINK } from './consts'
 
 export const getCircuits = async () => {
-	const url = 'https://ergast.com/api/f1/2024/circuits.json'
-	const response = await fetch(url, { next: { revalidate: SECONDS_ISR } })
-	const data = (await response.json()) as CircuitInformation
+	const url = `${SERVER_LINK}/circuits`
+	const circuits = await fetch(url, { next: { revalidate: SECONDS_ISR } })
+	const circuitsData = (await circuits.json()) as Circuits[]
 
-	return {
-		circuits: data.MRData.CircuitTable.Circuits,
-		season: data.MRData.CircuitTable.season
-	}
+	return circuitsData
 }

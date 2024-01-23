@@ -48,12 +48,12 @@ const Footer = () => {
 			<p className='opacity-30 pb-10 lg:pb-0'>
 				Powered by{' '}
 				<a
-					href='http://ergast.com/mrd/'
+					href='https://github.com/theOehrly/Fast-F1'
 					className='underline'
 					target='_blank'
 					rel='noreferrer'
 				>
-					Ergast's F1 API
+					FastF1 API
 				</a>
 			</p>
 		</footer>

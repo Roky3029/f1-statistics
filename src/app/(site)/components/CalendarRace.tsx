@@ -1,15 +1,7 @@
 import { getCountryFlag } from '@/helpers/getCountryFlag'
+import dayjs from 'dayjs'
 import Link from 'next/link'
-
-interface CalendarRaceProps {
-	hasGPPassed: boolean
-	round: string
-	raceName: string
-	country: string
-	circuitName: string
-	firstPractise: Date
-	raceDate: Date
-}
+import { CalendarRaceProps } from '@/types/schedule'
 
 const CalendarRace: React.FC<CalendarRaceProps> = ({
 	circuitName,
@@ -26,19 +18,17 @@ const CalendarRace: React.FC<CalendarRaceProps> = ({
 				hasGPPassed ? 'bg-blue-100' : 'bg-blue-200'
 			} space-y-5 p-5 rounded-lg shadow-md`}
 		>
-			<div className='grid gap-4 grid-cols-3 text-xl'>
-				<h4>Round {round}</h4>
-				<p className='col-start-2 col-end-4'>{raceName}</p>
-				<p className='text-3xl'>{getCountryFlag(country)}</p>
-			</div>
+			<p className='text-3xl lg:absolute'>{getCountryFlag(country)}</p>
+			<h4 className='text-xl text-center'>
+				Round {round} - {raceName}
+			</h4>
+
 			<p className='text-center text-lg'>{circuitName}</p>
 
 			<p className='text-center text-xl'>
-				{`${new Date(firstPractise).getDate()}/${new Date(
-					firstPractise
-				).getMonth()} - ${new Date(raceDate).getDate()}/${new Date(
-					raceDate
-				).getMonth()} ${new Date(raceDate).getFullYear()}`}
+				{`${dayjs(firstPractise).format('DD/MM/YY')} - ${dayjs(raceDate).format(
+					'DD/MM/YY'
+				)}`}
 			</p>
 
 			<div className='flex items-center justify-end'>

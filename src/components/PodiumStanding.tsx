@@ -1,9 +1,10 @@
+import dayjs from 'dayjs'
+
 interface PodiumStandingProps {
-	position: string
-	givenName: string
-	familyName: string
-	time?: string | undefined
-	points: string
+	position: number
+	fullName: string
+	time?: number | null
+	points: number
 	driverCode: string | undefined
 	isSeasonResult?: boolean
 	constructorName?: string
@@ -11,8 +12,7 @@ interface PodiumStandingProps {
 
 const PodiumStanding: React.FC<PodiumStandingProps> = ({
 	driverCode,
-	familyName,
-	givenName,
+	fullName,
 	points,
 	position,
 	time,
@@ -22,14 +22,14 @@ const PodiumStanding: React.FC<PodiumStandingProps> = ({
 	return (
 		<div
 			className={`${
-				position === '1' // -> check if the pilot on the podium is the 1st
+				position === 1 // -> check if the pilot on the podium is the 1st
 					? 'bg-gold row-start-1 lg:row-auto' // -> we won't add translation, as it has to be the highest
-					: position === '2' // -> if it's not first, check if it's second
+					: position === 2 // -> if it's not first, check if it's second
 					? 'translate-y-16 bg-silver' // -> if true, translate him
 					: 'translate-y-32 bg-bronze' // -> if not, (which will result in him being 3rd) we'll translate him even more
 			} flex flex-col items-center justify-center px-10 pt-4 rounded-lg shadow-md`}
 		>
-			<h2 className='text-2xl font-bold '>{`${givenName} ${familyName}`}</h2>
+			<h2 className='text-2xl font-bold '>{fullName}</h2>
 
 			{isSeasonResult ? (
 				<>
@@ -41,15 +41,16 @@ const PodiumStanding: React.FC<PodiumStandingProps> = ({
 				</>
 			) : (
 				<div className='flex items-center justify-center gap-10'>
-					<p>{time}</p>
+					<p>
+						{position === 1
+							? dayjs(time).format('HH:MM:ss')
+							: `+${dayjs(time).format('MM.ss')}`}
+					</p>
 					<p>+{points}</p>
 				</div>
 			)}
 
-			<img
-				src={`/drivers/${driverCode || 'placeholder'}.png`}
-				alt={familyName}
-			/>
+			<img src={`/drivers/${driverCode || 'placeholder'}.png`} alt={fullName} />
 		</div>
 	)
 }
