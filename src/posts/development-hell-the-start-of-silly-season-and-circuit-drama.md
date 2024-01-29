@@ -23,13 +23,14 @@ The main team is looking into changing some things of their internal structure, 
 
 Without the season even starting we have got some changes on the contracts of two drivers, although none of them are changing teams. Charles Leclerc was the first one to sign, renovating with Ferrari for an unknown number of years. Some journalists say that he has a place at the Scuderia until 2028. Leclerc himself has said that he liked knowing he would wear the red racing suit for some more seasons, confirmating that it is a multi-annual deal. It is also rummoured that Leclerc has a clause on his contract that permits him to rescind his contract if he doesn't have a winning car from 2026 onwards. The italian team also has signed Ollie Bearman to be their reserve driver.
 
-Mclaren also has re-signed one of it's drivers, the most veteran one, Lando Norris, who has dropped that he had offers from Red Bull:
+McLaren also has re-signed one of it's drivers, the most veteran one, Lando Norris, who has dropped that he had offers from Red Bull:
 
 > There were conversations, but they ended quickly.
 > When I started getting calls I talked it over internally
 > with Andrea Stella and Zak Brown, we discussed it and
 > made sure we put these rumors to rest and made a quick decision.
-> He also has declared that he didn't want to go to the Austrian team because he would have Max Verstappen as a teammate.
+
+He also has declared that he didn't want to go to the Austrian team because he would have Max Verstappen as a teammate.
 
 Here is a list of all the contracts on the grid:
 
@@ -70,7 +71,7 @@ Finally we have the definitive dates, with the announcement of Haas and Visa Cas
 | McLaren          | 14th February     |
 | Red Bull         | 15th February     |
 
-To make sure you keep up with the latest news in Formula 1, follow us on all our social media, links to them are on the [Blog section](https://somebitsoff1.vercel.app/blog)
+To make sure you keep up with the latest news in Formula 1, make sure to follow us on all our social media, links to them are on the [Blog section](https://somebitsoff1.vercel.app/blog)
 
 David,
 Co-owner of SBOF1
