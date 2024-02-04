@@ -2,6 +2,8 @@ import Title from '@/components/Title'
 import { getPostContent, getPostMetadata } from '@/data/getPostData'
 import Markdown from 'markdown-to-jsx'
 import Data from './components/Data'
+import { notFound } from 'next/navigation'
+import { combineDate } from '@/helpers/combineDate'
 
 export const generateStaticParams = async () => {
 	const posts = getPostMetadata()
@@ -14,6 +16,10 @@ export const generateStaticParams = async () => {
 const PostPage = (props: any) => {
 	const slug = props.params.slug
 	const post = getPostContent(slug)
+
+	const releaseDate = combineDate(post.data.date, '08:00')
+	const hasPassed = releaseDate.getTime() < new Date().getTime()
+	if (!hasPassed) notFound()
 
 	return (
 		<div className='flex items-center justify-center flex-col'>

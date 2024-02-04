@@ -9,7 +9,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon, link }) => {
 			href={link}
 			target='_blank'
 			rel='noreferrer'
-			className='transition-all hover:scale-[1.2]'
+			className='transition-all hover:scale-[1.2] flex items-center justify-center'
 		>
 			{icon}
 		</a>

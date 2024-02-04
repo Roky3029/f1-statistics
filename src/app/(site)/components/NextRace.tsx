@@ -11,11 +11,11 @@ const NextRace = async () => {
 	return (
 		<>
 			{!data.EventName ? (
-				<section className='flex w-[80%] flex-col rounded-lg bg-teal-300 px-14 pt-4'>
+				<section className='flex w-[80%] flex-col rounded-lg bg-indigo-300 px-14 pt-4'>
 					<Title text={`¡The season has ended. See you in 2024!`} small />
 				</section>
 			) : (
-				<section className='flex w-[80%] flex-col space-y-8 rounded-lg bg-teal-300 px-14 py-5'>
+				<section className='flex w-[80%] flex-col space-y-8 rounded-lg bg-indigo-300 px-14 py-5'>
 					<Title text='Next race' small />
 					<div className='grid place-content-center grid-cols-1 gap-5 md:gap-0 md:grid-cols-2 lg:grid-cols-3'>
 						<h4 className='text-2xl font-bold text-center'>{data.EventName}</h4>
