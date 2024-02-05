@@ -12,13 +12,12 @@ We are two Spaniards, myself and my friend David, who love Formula 1, and we wan
 
 You can find us on pretty much every famous social media app, below there's a list with the official SBOF1 account:
 
-| Social Network     | Link                                                                        |
-| ------------------ | --------------------------------------------------------------------------- |
-| YouTube            | [Some Bits Of F1](https://www.youtube.com/channel/UCBNAHGQteU5wBFTOlrmc5NA) |
-| TikTok             | [@somebitsoff1](https://www.tiktok.com/@somebitsoff1)                       |
-| Instagram          | [@somebitsoff1](https://www.instagram.com/somebitsoff1/)                    |
-| WhatsApp Community | [Some Bits Of F1](https://whatsapp.com/channel/0029VaFz7abAojZ28xazgR3V)    |
-| X / Twitter        | [Some Bits Of F1](https://twitter.com/SomeBitsOfF1)                         |
+| Social Network | Link                                                                        |
+| -------------- | --------------------------------------------------------------------------- |
+| YouTube        | [Some Bits Of F1](https://www.youtube.com/channel/UCBNAHGQteU5wBFTOlrmc5NA) |
+| TikTok         | [@somebitsoff1](https://www.tiktok.com/@somebitsoff1)                       |
+| Instagram      | [@somebitsoff1](https://www.instagram.com/somebitsoff1/)                    |
+| X / Twitter    | [Some Bits Of F1](https://twitter.com/SomeBitsOfF1)                         |
 
 ---
 

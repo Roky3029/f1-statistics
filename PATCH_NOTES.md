@@ -1,5 +1,10 @@
 # PATCH NOTES
 
+### Patch 3.0.2 (5/2/2024)
+
+- BUG: Solved a bug which made the icons in the blog be unaligned
+- MINOR: Solved a problem with the post date and removed the WhatsApp community as it no longer exists
+
 ### Patch 3.0.1 (23/1/2024)
 
 - BUG: Modified the driver info so it maintains the correct layout when showed on a mobile device.

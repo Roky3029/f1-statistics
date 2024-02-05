@@ -17,10 +17,6 @@ const PostPage = (props: any) => {
 	const slug = props.params.slug
 	const post = getPostContent(slug)
 
-	const releaseDate = combineDate(post.data.date, '08:00')
-	const hasPassed = releaseDate.getTime() < new Date().getTime()
-	if (!hasPassed) notFound()
-
 	return (
 		<div className='flex items-center justify-center flex-col'>
 			<div className='px-3'>
