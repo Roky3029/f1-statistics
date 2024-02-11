@@ -32,6 +32,7 @@ const NextRace = async () => {
 		new Date(data.Session1DateUtc).getHours ===
 			new Date(data.Session4DateUtc).getHours
 
+	console.log(new Date(data.Session5DateUtc).getFullYear())
 	return (
 		<div className='pb-10 w-full flex items-center justify-center flex-col'>
 			{/* dark:text-white */}
@@ -67,13 +68,21 @@ const NextRace = async () => {
 					/>
 				</div>
 
-				<Title small text='Time until next race' />
-
-				<Countdown expiryTimestamp={new Date(data.Session5DateUtc)} />
+				{/* <Countdown expiryTimestamp={new Date(data.Session5DateUtc)} /> */}
+				{new Date(data.Session5DateUtc).getFullYear() !== 1970 && (
+					<>
+						<Title small text='Time until next race' />
+						<Countdown expiryTimestamp={new Date(data.Session5DateUtc)} />
+					</>
+				)}
 
 				<Title text='Racing sessions' small />
 
-				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4'>
+				<div
+					className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
+						data.Session4 == 'None' ? 'lg:grid-cols-3' : 'lg:grid-cols-5'
+					}`}
+				>
 					<Card
 						sessionTitle={data.Session1}
 						day={new Date(data.Session1DateUtc).toLocaleDateString('es-ES')}

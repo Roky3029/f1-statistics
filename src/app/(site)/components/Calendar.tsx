@@ -15,12 +15,17 @@ const Calendar = async () => {
 					const hasDatePassedNow =
 						new Date(event.Session5DateUtc).getTime() < new Date().getTime()
 
-					const [circuit] = circuits.filter(
-						circ => circ.Location.country === event.Country
-					)
+					const [circuit] = circuits.filter(circ => {
+						if (circ.Location.country === 'UK') {
+							circ.Location.country = 'Great Britain'
+						}
+
+						circ.Location.country === event.Country
+					})
+
 					return (
 						<CalendarRace
-							circuitName={circuit.circuitName}
+							circuitName={circuit?.circuitName ?? ''}
 							country={event.Country}
 							firstPractise={event.Session1DateUtc}
 							hasGPPassed={hasDatePassedNow}
