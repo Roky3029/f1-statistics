@@ -12,6 +12,8 @@ const CalendarRace: React.FC<CalendarRaceProps> = ({
 	raceName,
 	round
 }) => {
+	const fp1Date = dayjs(firstPractise).format('DD/MM/YY')
+	const raceFecha = dayjs(raceDate).format('DD/MM/YY')
 	return (
 		<div
 			className={`${
@@ -26,9 +28,9 @@ const CalendarRace: React.FC<CalendarRaceProps> = ({
 			<p className='text-center text-lg'>{circuitName}</p>
 
 			<p className='text-center text-xl'>
-				{`${dayjs(firstPractise).format('DD/MM/YY')} - ${dayjs(raceDate).format(
-					'DD/MM/YY'
-				)}`}
+				{`${fp1Date === 'Invalid Date' ? 'TBC' : fp1Date} - ${
+					raceFecha === 'Invalid Date' ? '23/02/24' : raceFecha
+				}`}
 			</p>
 
 			<div className='flex items-center justify-end'>

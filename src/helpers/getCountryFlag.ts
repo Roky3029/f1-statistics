@@ -21,7 +21,9 @@ export const getCountryFlag = (country: string) => {
 		Brazil: ' 🇧🇷 ',
 		UAE: ' 🇦🇪 ',
 		China: ' 🇨🇳 ',
-		'United States': ' 🇺🇸 '
+		'United States': ' 🇺🇸 ',
+		'Great Britain': ' 🇬🇧 ',
+		'Abu Dhabi': ' 🇦🇪 '
 	}
 
 	return (raceCountries as any)[country] || ' 🇺🇳 '

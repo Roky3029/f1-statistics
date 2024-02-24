@@ -11,10 +11,6 @@ This project is built with:
 - TypeScript
 - React Icons -> icons
 
-# Patch Notes
-
-To see the patch notes where I'll be writing all the features I'll be creating and changing of the page, see [the patch notes](https://github.com/Roky3029/somebitsoff1/blob/main/PATCH_NOTES.md)
-
 ---
 
 Developed by Miguel R.

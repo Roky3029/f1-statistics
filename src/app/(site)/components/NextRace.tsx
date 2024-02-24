@@ -35,7 +35,11 @@ const NextRace = async () => {
 						</p>
 					</div>
 					<>
-						<Countdown expiryTimestamp={new Date(data.Session5DateUtc)} />
+						<Countdown
+							expiryTimestamp={
+								new Date(data.Session5DateUtc || data.Session3DateUtc)
+							}
+						/>
 
 						<div className='grid place-content-center'>
 							<Link

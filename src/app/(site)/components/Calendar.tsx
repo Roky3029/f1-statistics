@@ -7,6 +7,7 @@ const Calendar = async () => {
 	const calendar = await getSchedule()
 	const circuits = await getCircuits()
 
+	console.log(circuits)
 	return (
 		<>
 			<Title text={`${new Date().getFullYear()} calendar`} small />
@@ -16,16 +17,28 @@ const Calendar = async () => {
 						new Date(event.Session5DateUtc).getTime() < new Date().getTime()
 
 					const [circuit] = circuits.filter(circ => {
-						if (circ.Location.country === 'UK') {
-							circ.Location.country = 'Great Britain'
-						}
+						if (
+							(circ.Location.country === 'UK' &&
+								event.Country === 'Great Britain') ||
+							(circ.Location.country === 'UAE' && event.Country === 'Abu Dhabi')
+						)
+							return true
 
-						circ.Location.country === event.Country
+						return (
+							circ.Location.locality === event.Location ||
+							circ.Location.country === event.Country
+						)
 					})
 
 					return (
 						<CalendarRace
-							circuitName={circuit?.circuitName ?? ''}
+							circuitName={
+								circuit?.circuitName === 'Autodromo Enzo e Dino Ferrari' &&
+								event.EventName === 'Italian Grand Prix'
+									? 'Autodromo Nazionale Monza'
+									: circuit?.circuitName
+							}
+							// circuitName={circuit?.circuitName}
 							country={event.Country}
 							firstPractise={event.Session1DateUtc}
 							hasGPPassed={hasDatePassedNow}

@@ -9,8 +9,11 @@ import dayjs from 'dayjs'
 import Image from 'next/image'
 import ResultsTable from './components/ResultsTable'
 import dynamic from 'next/dynamic'
+import Problems from '@/components/Problems'
 
 const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
+	return <Problems />
+
 	const Countdown = dynamic(() => import('@/components/Countdown'), {
 		ssr: false
 	})
