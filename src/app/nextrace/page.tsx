@@ -114,12 +114,6 @@ const NextRace = async () => {
 						utcDate={data.Session5DateUtc}
 					/>
 				</div>
-				{isDateFetched && (
-					<p className='opacity-70'>
-						If the times above are the same it's because the API hasn't changed
-						them. As soon as the times are fully confirmed they will appear here
-					</p>
-				)}
 			</div>
 		</div>
 	)
