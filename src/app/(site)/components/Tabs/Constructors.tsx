@@ -21,6 +21,10 @@ const Drivers = () => {
 				{loading ? (
 					<div className='py-10'>
 						<GridLoader size={20} />
+						<p>
+							The data fetching may take a while. Please wait a few seconds or
+							refresh the page.
+						</p>
 					</div>
 				) : (
 					<>
