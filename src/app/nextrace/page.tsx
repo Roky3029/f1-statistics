@@ -32,7 +32,6 @@ const NextRace = async () => {
 		new Date(data.Session1DateUtc).getHours ===
 			new Date(data.Session4DateUtc).getHours
 
-	console.log(new Date(data.Session5DateUtc).getFullYear())
 	return (
 		<div className='pb-10 w-full flex items-center justify-center flex-col'>
 			{/* dark:text-white */}

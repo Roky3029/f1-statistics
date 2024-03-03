@@ -18,6 +18,7 @@ const Drivers = async () => {
 			<div className='w-full py-5 px-10 grid place-content-center gap-8 grid-cols-1 lg:grid-cols-2'>
 				{constructors.map(constructor => (
 					<ConstructorList
+						key={constructor.Constructor.constructorId}
 						constructorId={constructor.Constructor.constructorId}
 						name={constructor.Constructor.name}
 					/>

@@ -34,12 +34,16 @@ const CalendarRace: React.FC<CalendarRaceProps> = ({
 			</p>
 
 			<div className='flex items-center justify-end'>
-				<Link
-					href={`/schedule/${round}`}
-					className='flex w-fit items-center justify-center space-x-2 rounded-lg bg-amber-400 px-5 py-3 text-lg text-black shadow-lg transition-all duration-300 hover:scale-105 hover:bg-amber-500'
-				>
-					See more info
-				</Link>
+				{round === 0 ? (
+					<></>
+				) : (
+					<Link
+						href={`/schedule/${round}`}
+						className='flex w-fit items-center justify-center space-x-2 rounded-lg bg-amber-400 px-5 py-3 text-lg text-black shadow-lg transition-all duration-300 hover:scale-105 hover:bg-amber-500'
+					>
+						See more info
+					</Link>
+				)}
 			</div>
 		</div>
 	)

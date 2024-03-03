@@ -13,7 +13,7 @@ export const getDriverStandings = (setData: any, setLoading: any) => {
 
 export const getDriverStandingsSSR = async () => {
 	const url = `${SERVER_LINK}/standings/drivers`
-	const data = await fetch(url)
+	const data = await fetch(url, { next: { revalidate: SECONDS_ISR } })
 	const fetchedData = (await data.json()) as DriversStanding[]
 
 	return fetchedData

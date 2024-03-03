@@ -33,7 +33,7 @@ const Card = ({ sessionTitle, day, time, utcDate }: ComponentProps) => {
 							Date: {day}
 						</p>
 						<p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
-							Time: {time} (UTC Time)
+							Time: {time}
 						</p>
 					</div>
 				</div>

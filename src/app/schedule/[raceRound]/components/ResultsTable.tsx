@@ -6,7 +6,6 @@ interface ResultsTableProps {
 }
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ race }) => {
-	console.log(race)
 	const notPodiumResults = race
 		.filter(result => result.Position > 3)
 		.sort((a, b) => a.Position - b.Position)

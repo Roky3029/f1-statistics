@@ -7,7 +7,6 @@ const Calendar = async () => {
 	const calendar = await getSchedule()
 	const circuits = await getCircuits()
 
-	console.log(circuits)
 	return (
 		<>
 			<Title text={`${new Date().getFullYear()} calendar`} small />
