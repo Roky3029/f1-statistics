@@ -13,7 +13,7 @@ import Problems from '@/components/Problems'
 import { RiAlertLine } from 'react-icons/ri'
 
 const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
-	// return <Problems />
+	return <Problems />
 
 	const Countdown = dynamic(() => import('@/components/Countdown'), {
 		ssr: false
@@ -30,8 +30,6 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 
 	const hasDatePassedNow =
 		new Date(event.Session5DateUtc).getTime() < new Date().getTime()
-
-	if (hasDatePassedNow) return <Problems />
 
 	const podium = race?.filter(result => {
 		return result.Position <= 3
