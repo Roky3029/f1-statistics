@@ -20,6 +20,7 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 	})
 
 	const race = await getRaceInfo(params.raceRound)
+
 	const event = await getEvent(params.raceRound)
 	const circuits = await getCircuits()
 
@@ -29,6 +30,8 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 
 	const hasDatePassedNow =
 		new Date(event.Session5DateUtc).getTime() < new Date().getTime()
+
+	if (hasDatePassedNow) return <Problems />
 
 	const podium = race?.filter(result => {
 		return result.Position <= 3
@@ -95,7 +98,7 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 					</>
 				) : (
 					<>
-						{/* <Title text='Race results' small />
+						<Title text='Race results' small />
 
 						<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
 							{sortedPodium.map(driver => (
@@ -112,14 +115,6 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 
 						<div className='flex items-center justify-center flex-col w-full pt-40'>
 							<ResultsTable race={race} />
-						</div> */}
-
-						<div className='text-amber-400 bg-amber-200 border-2 border-amber-400 py-5 rounded-lg mx-10 px-10 flex items-center justify-center flex-col lg:flex-row'>
-							<RiAlertLine size={133} />
-							<Title
-								text='We are currently experiencing some problems to fetch the results of the race. Please wait patiently until the issue is solved.'
-								small
-							/>
 						</div>
 					</>
 				)}

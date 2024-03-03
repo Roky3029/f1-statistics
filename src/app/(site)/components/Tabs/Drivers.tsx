@@ -29,7 +29,7 @@ const Drivers = () => {
 				) : (
 					<>
 						<div className='grid grid-cols-1 place-content-center text-center gap-5 text-2xl font-bold'>
-							<span>Drivers' championship</span> <p>Season {data?.season}</p>
+							<span>Drivers' championship</span> <p>{data?.season} season</p>
 						</div>
 						<div className='grid grid-cols-1 lg:grid-cols-2 w-[90%] place-content-center gap-3 pt-10'>
 							{data?.DriverStandings?.map(
