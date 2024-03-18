@@ -21,7 +21,7 @@ const Drivers = () => {
 				{loading ? (
 					<div className='py-10 flex flex-col items-center justify-between gap-10'>
 						<GridLoader size={20} />
-						<p className='text-xl'>
+						<p className='text-xl px-10 opacity-70'>
 							The data fetching may take a while. Please wait a few seconds or
 							refresh the page.
 						</p>

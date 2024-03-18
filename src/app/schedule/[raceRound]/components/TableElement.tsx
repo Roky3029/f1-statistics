@@ -1,4 +1,5 @@
 import { constructors } from '@/data/constructors'
+import { formatRaceTime } from '@/helpers/formatRaceTime'
 
 interface TableElementProps {
 	position: number
@@ -38,7 +39,7 @@ const TableElement: React.FC<TableElementProps> = ({
 				</span>
 			</p>
 			<p className='hidden md:block'>{constructorName}</p>
-			<p>{time || '-'}</p>
+			<p>{formatRaceTime(position, time || -1)}</p>
 			<p>+{points}</p>
 			<p>{raceStatus}</p>
 		</div>

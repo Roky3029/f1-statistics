@@ -36,7 +36,9 @@ const config: Config = {
 				gold: '#ffd700'
 			},
 			fontFamily: {
-				f1: ['var(--font-f1)']
+				f1bold: ['Formula1Bold', 'Arial'],
+				f1regular: ['Formula1Regular', 'Arial'],
+				f1wide: ['Formula1Wide', 'Arial']
 			},
 			borderColor: {
 				f1: '#ff1801'
@@ -52,7 +54,6 @@ const config: Config = {
 				opac: 'opac .5s'
 			}
 		}
-	},
-	plugins: [nextui(), require('@tailwindcss/typography')]
+	}
 }
 export default config

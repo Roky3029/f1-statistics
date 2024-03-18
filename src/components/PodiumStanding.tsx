@@ -1,3 +1,4 @@
+import { formatRaceTime } from '@/helpers/formatRaceTime'
 import dayjs from 'dayjs'
 
 interface PodiumStandingProps {
@@ -41,11 +42,7 @@ const PodiumStanding: React.FC<PodiumStandingProps> = ({
 				</>
 			) : (
 				<div className='flex items-center justify-center gap-10'>
-					<p>
-						{position === 1
-							? dayjs(time).format('HH:MM:ss')
-							: `+${dayjs(time).format('MM.ss')}`}
-					</p>
+					<p>{formatRaceTime(position, time || -1)}</p>
 					<p>+{points}</p>
 				</div>
 			)}
