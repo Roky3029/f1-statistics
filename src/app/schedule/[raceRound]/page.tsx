@@ -10,6 +10,7 @@ import Image from 'next/image'
 import ResultsTable from './components/ResultsTable'
 import dynamic from 'next/dynamic'
 import BasicEvent from './components/BasicEvent'
+import Problems from '@/components/Problems'
 
 const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 	const Countdown = dynamic(() => import('@/components/Countdown'), {
@@ -50,6 +51,8 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 			</>
 		)
 	}
+
+	return <Problems />
 
 	const race = await getRaceInfo(params.raceRound)
 
