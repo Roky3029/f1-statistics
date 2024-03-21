@@ -1,16 +1,12 @@
-import InformationParagraph from '@/components/InformationParagraph'
 import PodiumStanding from '@/components/PodiumStanding'
 import Title from '@/components/Title'
 import { getCircuits } from '@/data/getCircuits'
 import { getEvent } from '@/data/getEvent'
 import { getRaceInfo } from '@/data/getRaceInfo'
-import { getCountryFlag } from '@/helpers/getCountryFlag'
-import dayjs from 'dayjs'
-import Image from 'next/image'
 import ResultsTable from './components/ResultsTable'
 import dynamic from 'next/dynamic'
 import BasicEvent from './components/BasicEvent'
-import Problems from '@/components/Problems'
+import races from '@/data/raceResults.json'
 
 const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 	const Countdown = dynamic(() => import('@/components/Countdown'), {
@@ -52,15 +48,33 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 		)
 	}
 
-	return <Problems />
+	// I know it's extremely unefficient my approach but if I used the API to fetch the race result the free instance of the server would crash due to free-tier limitations, so I'll have to use that until I find a better solution
+	// const race = await getRaceInfo(params.raceRound)
 
-	const race = await getRaceInfo(params.raceRound)
+	const race = races[params.raceRound as keyof typeof races]
+	// console.log(race)
 
-	const podium = race?.filter(result => {
+	if (!race) {
+		return (
+			<BasicEvent
+				circuit={circuit}
+				event={event}
+				hasDatePassedNow={hasDatePassedNow}
+				raceRound={params.raceRound}
+			>
+				<Title
+					text="Whoops! Feels like this data isn't on the web yet. Please wait and try again"
+					small
+				/>
+			</BasicEvent>
+		)
+	}
+
+	const podium = race?.filter((result: any) => {
 		return result.Position <= 3
 	})
 
-	const sortedPodium = podium?.sort((a, b) => {
+	const sortedPodium = podium?.sort((a: any, b: any) => {
 		if (a.Position === 2) return -1
 		if (b.Position === 1) return 1
 		return 0
@@ -77,7 +91,7 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 				<Title text='Race results' small />
 
 				<div className='grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-10'>
-					{sortedPodium.map(driver => (
+					{sortedPodium.map((driver: any) => (
 						<PodiumStanding
 							driverCode={driver.Abbreviation}
 							fullName={driver.FullName}

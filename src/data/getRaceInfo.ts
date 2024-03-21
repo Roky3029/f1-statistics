@@ -27,7 +27,7 @@ function transformObject(originalObject: RaceResultRaw) {
 
 export const getRaceInfo = async (round: string) => {
 	const url = `${SERVER_LINK}/results/${round}`
-	const race = await fetch(url, { next: { revalidate: SECONDS_ISR } })
+	const race = await fetch(url)
 	const raceData = await race.json()
 
 	const raceResult = transformObject(raceData) as unknown as RaceResult[]

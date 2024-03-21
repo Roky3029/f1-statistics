@@ -2,7 +2,7 @@ import { RaceResult } from '@/types/raceResult'
 import TableElement from './TableElement'
 
 interface ResultsTableProps {
-	race: RaceResult[]
+	race: any
 }
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ race }) => {
