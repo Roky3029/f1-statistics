@@ -7,8 +7,10 @@ interface ResultsTableProps {
 
 const ResultsTable: React.FC<ResultsTableProps> = ({ race }) => {
 	const notPodiumResults = race
-		.filter(result => result.Position > 3)
-		.sort((a, b) => a.Position - b.Position)
+		.filter((result: (typeof race)['1']) => result.Position > 3)
+		.sort(
+			(a: (typeof race)['1'], b: (typeof race)['1']) => a.Position - b.Position
+		)
 	const gridClasses = 'grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6'
 
 	return (
@@ -23,7 +25,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ race }) => {
 				<p>Points</p>
 				<p>Race status</p>
 			</div>
-			{notPodiumResults.map(driver => (
+			{notPodiumResults.map((driver: (typeof notPodiumResults)[0]) => (
 				<TableElement
 					gridClasses={gridClasses}
 					constructorId={driver.TeamId}
