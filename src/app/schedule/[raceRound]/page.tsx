@@ -74,10 +74,12 @@ const RaceInfo = async ({ params }: { params: { raceRound: string } }) => {
 		return result.Position <= 3
 	})
 
-	const sortedPodium = podium?.sort((a: any, b: any) => {
-		if (a.Position === 2) return -1
-		if (b.Position === 1) return 1
-		return 0
+	const sortedPodium = podium.sort((a, b) => {
+		const positionOrder = { 2: 0, 1: 1, 3: 2 }
+		return (
+			positionOrder[a.Position as keyof typeof positionOrder] -
+			positionOrder[b.Position as keyof typeof positionOrder]
+		)
 	})
 
 	return (

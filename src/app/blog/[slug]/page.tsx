@@ -2,8 +2,6 @@ import Title from '@/components/Title'
 import { getPostContent, getPostMetadata } from '@/data/getPostData'
 import Markdown from 'markdown-to-jsx'
 import Data from './components/Data'
-import { notFound } from 'next/navigation'
-import { combineDate } from '@/helpers/combineDate'
 
 export const generateStaticParams = async () => {
 	const posts = getPostMetadata()
@@ -30,7 +28,7 @@ const PostPage = (props: any) => {
 			/>
 
 			<article className='prose lg:prose-xl px-5'>
-				<Markdown>{post.content}</Markdown>
+				<Markdown>{String.raw`${post.content}`}</Markdown>
 			</article>
 		</div>
 	)

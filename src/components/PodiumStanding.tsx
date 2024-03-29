@@ -1,5 +1,4 @@
 import { formatRaceTime } from '@/helpers/formatRaceTime'
-import dayjs from 'dayjs'
 
 interface PodiumStandingProps {
 	position: number

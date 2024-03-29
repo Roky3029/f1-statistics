@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-const { nextui } = require('@nextui-org/react')
 
 const config: Config = {
 	content: [
@@ -54,6 +53,7 @@ const config: Config = {
 				opac: 'opac .5s'
 			}
 		}
-	}
+	},
+	plugins: [require('@tailwindcss/typography')]
 }
 export default config
