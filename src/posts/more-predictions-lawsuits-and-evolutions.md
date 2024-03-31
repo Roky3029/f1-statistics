@@ -1,6 +1,6 @@
 ---
 title: 'More predictions, lawsuits, and evolutions'
-subtitle: "Tihs week we'll be highlighting some predictions that have been made, current lawsuits, and the beginning of evolutions"
+subtitle: "This week we'll be highlighting some predictions that have been made, current lawsuits, and the beginning of evolutions"
 date: '18/3/2024'
 author: 'M'
 ---
