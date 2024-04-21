@@ -37,16 +37,26 @@ const CalendarRace: React.FC<CalendarRaceProps> = ({
 				{round === 0 ? (
 					<></>
 				) : (
-					<Link
-						href={`/schedule/${round}`}
-						className={`flex w-fit items-center justify-center space-x-2 rounded-lg px-5 py-3 text-lg text-black shadow-lg transition-all duration-300 hover:scale-105 ${
-							hasGPPassed
-								? 'bg-sky-300 hover:bg-sky-400'
-								: 'bg-amber-400 hover:bg-amber-500'
-						}`}
-					>
-						{hasGPPassed ? 'Race results' : 'More info'}
-					</Link>
+					// <Link
+					// 	href={`/schedule/${round}`}
+					// 	className={`flex w-fit items-center justify-center space-x-2 rounded-lg px-5 py-3 text-lg text-black shadow-lg transition-all duration-300 hover:scale-105 ${
+					// 		hasGPPassed
+					// 			? 'bg-sky-300 hover:bg-sky-400'
+					// 			: 'bg-amber-400 hover:bg-amber-500'
+					// 	}`}
+					// >
+					// 	{hasGPPassed ? 'Race results' : 'More info'}
+					// </Link>
+					<>
+					{!hasGPPassed && (
+						<Link
+							href={`/schedule/${round}`}
+							className={`flex w-fit items-center justify-center space-x-2 rounded-lg px-5 py-3 text-lg text-black shadow-lg transition-all duration-300 hover:scale-105 bg-sky-300 hover:bg-sky-400`}
+						>
+							More Info
+						</Link>
+					)}
+					</>	
 				)}
 			</div>
 		</div>
