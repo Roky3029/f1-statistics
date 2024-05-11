@@ -7,6 +7,8 @@ author: 'M'
 
 This week, to be honest, we've had more news than what we could've expected, so let's review some of them:
 
+>
+
 ### The 2025 calendar has been confirmed
 
 We aren't even on the equator of the season and yet the 2025 calendar has been officially confirmed by the official F1 social media, with the most significant change being the season opener, changing from Bahrain to Australia, as it was in the past. Below there's a table with all the races of the calendar and in bold the races which have been moved in the list:
