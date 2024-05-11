@@ -10,7 +10,9 @@ export const getNextRace = async () => {
 	const circuits = await getCircuits()
 
 	const [circuit] = circuits.filter(
-		cir => cir.Location.country === nextRaceData.Country
+		cir =>
+			cir.Location.country === nextRaceData.Country ||
+			cir.Location.locality === nextRaceData.Location
 	)
 
 	return { nextRaceData, circuit }

@@ -8,6 +8,8 @@ import Title from '@/components/Title'
 const NextRace = async () => {
 	const { nextRaceData: data, circuit } = await getNextRace()
 
+	console.log(circuit)
+
 	return (
 		<>
 			{!data.EventName ? (
